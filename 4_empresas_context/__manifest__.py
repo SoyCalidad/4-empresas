@@ -10,6 +10,7 @@
     'depends': ['base', 'mgmtsystem_context'],
     'data': [
         'views/context_system_views.xml',
+        'views/context_views.xml',
         'views/menus.xml',
     ],
     'installable': True,
