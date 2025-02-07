@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="mgmtsystem_context_system_menu_action"
+              name="Identificadores"
+              parent="mgmtsystem_context.context_policy_root_menu"
+              action="mgmtsystem_context_system_menu_action"
+              sequence="20"
+              groups="base.group_multi_company"/>
+</odoo>
