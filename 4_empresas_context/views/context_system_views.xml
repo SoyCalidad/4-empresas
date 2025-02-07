@@ -14,7 +14,7 @@
         </field>
     </record>
 
-    <record id="mgmtsystem_context_system_menu_action" model="ir.actions.act_window">
+    <record id="mgmtsystem_context_system_action" model="ir.actions.act_window">
         <field name="name">Identificadores</field>
         <field name="res_model">mgmtsystem.context.system</field>
         <field name="view_mode">tree,form</field>

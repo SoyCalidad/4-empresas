@@ -6,7 +6,7 @@
     'author': 'Soy Calidad',
     'website': 'https://www.soycalidad.com',
     'license': 'Other proprietary',
-    'category': 'crm',
+    'category': 'Uncategorized',
     'depends': ['base', 'mgmtsystem_context'],
     'data': [
         'views/context_system_views.xml',
