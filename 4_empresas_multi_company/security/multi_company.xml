@@ -1,0 +1,1062 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="model_hola_calidad_diagnostic_line_rule" model="ir.rule">
+            <field name="name">model_hola_calidad_diagnostic_line</field>
+            <field name="model_id" ref="hola_calidad.model_hola_calidad_diagnostic_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hola_calidad_diagnostic_rule" model="ir.rule">
+            <field name="name">model_hola_calidad_diagnostic</field>
+            <field name="model_id" ref="hola_calidad.model_hola_calidad_diagnostic" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_frequency_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_frequency</field>
+            <field name="model_id" ref="hola_calidad.model_mgmtsystem_frequency" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_general_standard_rule" model="ir.rule">
+            <field name="name">model_general_standard</field>
+            <field name="model_id" ref="hola_calidad.model_general_standard" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_approval_process_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_approval_process</field>
+            <field name="model_id" ref="hola_calidad.model_mgmtsystem_context_approval_process" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_version_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_version</field>
+            <field name="model_id" ref="hola_calidad.model_mgmtsystem_version" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_workplace_rule" model="ir.rule">
+            <field name="name">model_hr_workplace</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_workplace" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_rule" model="ir.rule">
+            <field name="name">model_hr_job</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_function_rule" model="ir.rule">
+            <field name="name">model_hr_job_function</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_function" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_evaluation_factor_rule" model="ir.rule">
+            <field name="name">model_hr_job_evaluation_factor</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_evaluation_factor" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_coordinator_rule" model="ir.rule">
+            <field name="name">model_hr_job_coordinator</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_coordinator" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_supervisor_rule" model="ir.rule">
+            <field name="name">model_hr_job_supervisor</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_supervisor" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_supervised_rule" model="ir.rule">
+            <field name="name">model_hr_job_supervised</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_supervised" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_profile_rule" model="ir.rule">
+            <field name="name">model_hr_job_profile</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_profile" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_profile_specialty_rule" model="ir.rule">
+            <field name="name">model_hr_job_profile_specialty</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_profile_specialty" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_profile_experience_rule" model="ir.rule">
+            <field name="name">model_hr_job_profile_experience</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_profile_experience" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_skill_rule" model="ir.rule">
+            <field name="name">model_hr_job_skill</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_skill" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_generic_skill_rule" model="ir.rule">
+            <field name="name">model_hr_job_generic_skill</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_generic_skill" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_workteam_skill_rule" model="ir.rule">
+            <field name="name">model_hr_job_workteam_skill</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_workteam_skill" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_personal_skill_rule" model="ir.rule">
+            <field name="name">model_hr_job_personal_skill</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_personal_skill" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_job_strategic_skill_rule" model="ir.rule">
+            <field name="name">model_hr_job_strategic_skill</field>
+            <field name="model_id" ref="hr_job_functions.model_hr_job_strategic_skill" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_action_type_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_action_type</field>
+            <field name="model_id" ref="mgmtsystem_action.model_mgmtsystem_action_type" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_action_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_action</field>
+            <field name="model_id" ref="mgmtsystem_action.model_mgmtsystem_action" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_audit_team_rule" model="ir.rule">
+            <field name="name">model_audit_team</field>
+            <field name="model_id" ref="mgmtsystem_audit.model_audit_team" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_audit_audit_rule" model="ir.rule">
+            <field name="name">model_audit_audit</field>
+            <field name="model_id" ref="mgmtsystem_audit.model_audit_audit" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_audit_line_rule" model="ir.rule">
+            <field name="name">model_audit_line</field>
+            <field name="model_id" ref="mgmtsystem_audit.model_audit_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_audit_report_rule" model="ir.rule">
+            <field name="name">model_audit_report</field>
+            <field name="model_id" ref="mgmtsystem_audit.model_audit_report" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_report_line_rule" model="ir.rule">
+            <field name="name">model_report_line</field>
+            <field name="model_id" ref="mgmtsystem_audit.model_report_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_report_line_document_rule" model="ir.rule">
+            <field name="name">model_report_line_document</field>
+            <field name="model_id" ref="mgmtsystem_audit.model_report_line_document" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_audit_plan_categ_rule" model="ir.rule">
+            <field name="name">model_audit_plan_categ</field>
+            <field name="model_id" ref="mgmtsystem_audit.model_audit_plan_categ" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_audit_plan_rule" model="ir.rule">
+            <field name="name">model_audit_plan</field>
+            <field name="model_id" ref="mgmtsystem_audit.model_audit_plan" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_complaint_complaint_cause_why_rule" model="ir.rule">
+            <field name="name">model_complaint_complaint_cause_why</field>
+            <field name="model_id" ref="mgmtsystem_complaints.model_complaint_complaint_cause_why" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_complaint_analisis_rule" model="ir.rule">
+            <field name="name">model_complaint_analisis</field>
+            <field name="model_id" ref="mgmtsystem_complaints.model_complaint_analisis" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_comunication_plan_categ_rule" model="ir.rule">
+            <field name="name">model_comunication_plan_categ</field>
+            <field name="model_id" ref="mgmtsystem_comunication.model_comunication_plan_categ" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_comunication_plan_rule" model="ir.rule">
+            <field name="name">model_comunication_plan</field>
+            <field name="model_id" ref="mgmtsystem_comunication.model_comunication_plan" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_comunication_plan_line_rule" model="ir.rule">
+            <field name="name">model_comunication_plan_line</field>
+            <field name="model_id" ref="mgmtsystem_comunication.model_comunication_plan_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_comunication_plan_line_document_rule" model="ir.rule">
+            <field name="name">model_comunication_plan_line_document</field>
+            <field name="model_id" ref="mgmtsystem_comunication.model_comunication_plan_line_document" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_record_meeting_rule" model="ir.rule">
+            <field name="name">model_record_meeting</field>
+            <field name="model_id" ref="mgmtsystem_comunication.model_record_meeting" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_record_meeting_preline_rule" model="ir.rule">
+            <field name="name">model_record_meeting_preline</field>
+            <field name="model_id" ref="mgmtsystem_comunication.model_record_meeting_preline" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_record_meeting_line_rule" model="ir.rule">
+            <field name="name">model_record_meeting_line</field>
+            <field name="model_id" ref="mgmtsystem_comunication.model_record_meeting_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_assistance_meeting_rule" model="ir.rule">
+            <field name="name">model_assistance_meeting</field>
+            <field name="model_id" ref="mgmtsystem_comunication.model_assistance_meeting" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_internal_issue_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_internal_issue</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_internal_issue" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_moral_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_moral</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_moral" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_policy_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_policy</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_policy" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_policy_template_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_policy_template</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_policy_template" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_policy_action_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_policy_action</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_policy_action" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_external_issue_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_external_issue</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_external_issue" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_external_issue_force_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_external_issue_force</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_external_issue_force" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_force_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_force</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_force" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_stakeholders_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_stakeholders</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_stakeholders" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_stakeholder_stakeholder_rule" model="ir.rule">
+            <field name="name">model_stakeholder_stakeholder</field>
+            <field name="model_id" ref="mgmtsystem_context.model_stakeholder_stakeholder" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_stakeholder_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_stakeholder</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_stakeholder" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_stakeholder_req_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_stakeholder_req</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_stakeholder_req" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_stakeholder_opp_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_stakeholder_opp</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_stakeholder_opp" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_organization_chart_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_organization_chart</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_organization_chart" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_context_pest_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_pest</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_pest" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_pest_factor_rule" model="ir.rule">
+            <field name="name">model_pest_factor</field>
+            <field name="model_id" ref="mgmtsystem_context.model_pest_factor" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_pest_factor_type_rule" model="ir.rule">
+            <field name="name">model_pest_factor_type</field>
+            <field name="model_id" ref="mgmtsystem_context.model_pest_factor_type" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_hr_employee_document_type_rule" model="ir.rule">
+            <field name="name">model_hr_employee_document_type</field>
+            <field name="model_id" ref="mgmtsystem_employees.model_hr_employee_document_type" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_capa_categ_rule" model="ir.rule">
+            <field name="name">model_capa_categ</field>
+            <field name="model_id" ref="mgmtsystem_employees.model_capa_categ" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_plan_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_plan</field>
+            <field name="model_id" ref="mgmtsystem_employees.model_mgmtsystem_plan" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_plan_training_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_plan_training</field>
+            <field name="model_id" ref="mgmtsystem_employees.model_mgmtsystem_plan_training" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_plan_training_line_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_plan_training_line</field>
+            <field name="model_id" ref="mgmtsystem_employees.model_mgmtsystem_plan_training_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_training_document_rule" model="ir.rule">
+            <field name="name">model_training_document</field>
+            <field name="model_id" ref="mgmtsystem_employees.model_training_document" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_calibration_plan_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_calibration_plan</field>
+            <field name="model_id" ref="mgmtsystem_infrastructure.model_mgmtsystem_calibration_plan" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_calibration_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_calibration</field>
+            <field name="model_id" ref="mgmtsystem_infrastructure.model_mgmtsystem_calibration" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_calibration_line_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_calibration_line</field>
+            <field name="model_id" ref="mgmtsystem_infrastructure.model_mgmtsystem_calibration_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_infrastructure_line_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_infrastructure_line</field>
+            <field name="model_id" ref="mgmtsystem_infrastructure.model_mgmtsystem_infrastructure_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_infrastructure_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_infrastructure</field>
+            <field name="model_id" ref="mgmtsystem_infrastructure.model_mgmtsystem_infrastructure" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_infrastructure_line_document_rule" model="ir.rule">
+            <field name="name">model_infrastructure_line_document</field>
+            <field name="model_id" ref="mgmtsystem_infrastructure.model_infrastructure_line_document" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_maintenance_frequency_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_maintenance_frequency</field>
+            <field name="model_id" ref="mgmtsystem_infrastructure.model_mgmtsystem_maintenance_frequency" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_maintenance_plan_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_maintenance_plan</field>
+            <field name="model_id" ref="mgmtsystem_infrastructure.model_mgmtsystem_maintenance_plan" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_maintenance_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_maintenance</field>
+            <field name="model_id" ref="mgmtsystem_infrastructure.model_mgmtsystem_maintenance" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_maintenance_line_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_maintenance_line</field>
+            <field name="model_id" ref="mgmtsystem_infrastructure.model_mgmtsystem_maintenance_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_legal_type_rule" model="ir.rule">
+            <field name="name">model_legal_type</field>
+            <field name="model_id" ref="mgmtsystem_legal.model_legal_type" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_legal_legal_rule" model="ir.rule">
+            <field name="name">model_legal_legal</field>
+            <field name="model_id" ref="mgmtsystem_legal.model_legal_legal" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_legal_article_rule" model="ir.rule">
+            <field name="name">model_legal_article</field>
+            <field name="model_id" ref="mgmtsystem_legal.model_legal_article" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_legal_article_document_rule" model="ir.rule">
+            <field name="name">model_legal_article_document</field>
+            <field name="model_id" ref="mgmtsystem_legal.model_legal_article_document" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_legal_plan_categ_rule" model="ir.rule">
+            <field name="name">model_legal_plan_categ</field>
+            <field name="model_id" ref="mgmtsystem_legal.model_legal_plan_categ" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_legal_plan_rule" model="ir.rule">
+            <field name="name">model_legal_plan</field>
+            <field name="model_id" ref="mgmtsystem_legal.model_legal_plan" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_legal_plan_line_rule" model="ir.rule">
+            <field name="name">model_legal_plan_line</field>
+            <field name="model_id" ref="mgmtsystem_legal.model_legal_plan_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_legal_plan_history_line_rule" model="ir.rule">
+            <field name="name">model_legal_plan_history_line</field>
+            <field name="model_id" ref="mgmtsystem_legal.model_legal_plan_history_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_legal_plan_history_rule" model="ir.rule">
+            <field name="name">model_legal_plan_history</field>
+            <field name="model_id" ref="mgmtsystem_legal.model_legal_plan_history" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_management_review_team_rule" model="ir.rule">
+            <field name="name">model_management_review_team</field>
+            <field name="model_id" ref="mgmtsystem_management_review.model_management_review_team" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_management_review_team_line_rule" model="ir.rule">
+            <field name="name">model_management_review_team_line</field>
+            <field name="model_id" ref="mgmtsystem_management_review.model_management_review_team_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_review_team_job_rule" model="ir.rule">
+            <field name="name">model_review_team_job</field>
+            <field name="model_id" ref="mgmtsystem_management_review.model_review_team_job" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_management_review_plan_rule" model="ir.rule">
+            <field name="name">model_management_review_plan</field>
+            <field name="model_id" ref="mgmtsystem_management_review.model_management_review_plan" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_management_review_rule" model="ir.rule">
+            <field name="name">model_management_review</field>
+            <field name="model_id" ref="mgmtsystem_management_review.model_management_review" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_mof_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_mof</field>
+            <field name="model_id" ref="mgmtsystem_mof.model_mgmtsystem_mof" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_nonconformity_type_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_nonconformity_type</field>
+            <field name="model_id" ref="mgmtsystem_nonconformity.model_mgmtsystem_nonconformity_type" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_nonconformity_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_nonconformity</field>
+            <field name="model_id" ref="mgmtsystem_nonconformity.model_mgmtsystem_nonconformity" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_nonconformity_cause_why_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_nonconformity_cause_why</field>
+            <field name="model_id" ref="mgmtsystem_nonconformity.model_mgmtsystem_nonconformity_cause_why" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_nonconformity_why_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_nonconformity_why</field>
+            <field name="model_id" ref="mgmtsystem_nonconformity.model_mgmtsystem_nonconformity_why" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_nonconformity_cause_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_nonconformity_cause</field>
+            <field name="model_id" ref="mgmtsystem_nonconformity.model_mgmtsystem_nonconformity_cause" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_evaluation_result_rule" model="ir.rule">
+            <field name="name">model_evaluation_result</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_evaluation_result" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_evaluation_evaluation_rule" model="ir.rule">
+            <field name="name">model_evaluation_evaluation</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_evaluation_evaluation" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_evaluation_criterio_rule" model="ir.rule">
+            <field name="name">model_evaluation_criterio</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_evaluation_criterio" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_evaluation_criterio_line_rule" model="ir.rule">
+            <field name="name">model_evaluation_criterio_line</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_evaluation_criterio_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_matrix_categ_rule" model="ir.rule">
+            <field name="name">model_matrix_categ</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_matrix_categ" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_matrix_matrix_rule" model="ir.rule">
+            <field name="name">model_matrix_matrix</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_matrix_matrix" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_matrix_block_rule" model="ir.rule">
+            <field name="name">model_matrix_block</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_matrix_block" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_matrix_block_line_agent_rule" model="ir.rule">
+            <field name="name">model_matrix_block_line_agent</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_matrix_block_line_agent" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_matrix_block_line_type_rule" model="ir.rule">
+            <field name="name">model_matrix_block_line_type</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_matrix_block_line_type" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_matrix_block_line_system_rule" model="ir.rule">
+            <field name="name">model_matrix_block_line_system</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_matrix_block_line_system" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_matrix_block_line_rule" model="ir.rule">
+            <field name="name">model_matrix_block_line</field>
+            <field name="model_id" ref="mgmtsystem_opportunity.model_matrix_block_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_res_partner_evaluation_rule" model="ir.rule">
+            <field name="name">model_res_partner_evaluation</field>
+            <field name="model_id" ref="mgmtsystem_partner_qualification.model_res_partner_evaluation" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_res_partner_evaluation_item_rule" model="ir.rule">
+            <field name="name">model_res_partner_evaluation_item</field>
+            <field name="model_id" ref="mgmtsystem_partner_qualification.model_res_partner_evaluation_item" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_res_partner_evaluation_item_line_rule" model="ir.rule">
+            <field name="name">model_res_partner_evaluation_item_line</field>
+            <field name="model_id" ref="mgmtsystem_partner_qualification.model_res_partner_evaluation_item_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_res_partner_evaluation_history_rule" model="ir.rule">
+            <field name="name">model_res_partner_evaluation_history</field>
+            <field name="model_id" ref="mgmtsystem_partner_qualification.model_res_partner_evaluation_history" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_res_partner_evaluation_history_item_rule" model="ir.rule">
+            <field name="name">model_res_partner_evaluation_history_item</field>
+            <field name="model_id" ref="mgmtsystem_partner_qualification.model_res_partner_evaluation_history_item" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_res_partner_evaluation_history_item_line_rule" model="ir.rule">
+            <field name="name">model_res_partner_evaluation_history_item_line</field>
+            <field name="model_id" ref="mgmtsystem_partner_qualification.model_res_partner_evaluation_history_item_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_evaluation_initial_evaluation_item_rule" model="ir.rule">
+            <field name="name">model_evaluation_initial_evaluation_item</field>
+            <field name="model_id" ref="mgmtsystem_partner_qualification.model_evaluation_initial_evaluation_item" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_evaluation_initial_evaluation_rule" model="ir.rule">
+            <field name="name">model_evaluation_initial_evaluation</field>
+            <field name="model_id" ref="mgmtsystem_partner_qualification.model_evaluation_initial_evaluation" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_res_partner_initial_evaluation_item_rule" model="ir.rule">
+            <field name="name">model_res_partner_initial_evaluation_item</field>
+            <field name="model_id" ref="mgmtsystem_partner_qualification.model_res_partner_initial_evaluation_item" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_res_partner_initial_evaluation_rule" model="ir.rule">
+            <field name="name">model_res_partner_initial_evaluation</field>
+            <field name="model_id" ref="mgmtsystem_partner_qualification.model_res_partner_initial_evaluation" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmt_categ_type_rule" model="ir.rule">
+            <field name="name">model_mgmt_categ_type</field>
+            <field name="model_id" ref="mgmtsystem_process.model_mgmt_categ_type" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmt_process_rule" model="ir.rule">
+            <field name="name">model_mgmt_process</field>
+            <field name="model_id" ref="mgmtsystem_process.model_mgmt_process" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_res_economy_activity_rule" model="ir.rule">
+            <field name="name">model_res_economy_activity</field>
+            <field name="model_id" ref="mgmtsystem_process.model_res_economy_activity" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_edition_responsable_line_rule" model="ir.rule">
+            <field name="name">model_edition_responsable_line</field>
+            <field name="model_id" ref="mgmtsystem_process.model_edition_responsable_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_edition_abbreviation_rule" model="ir.rule">
+            <field name="name">model_edition_abbreviation</field>
+            <field name="model_id" ref="mgmtsystem_process.model_edition_abbreviation" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_process_edition_template_rule" model="ir.rule">
+            <field name="name">model_process_edition_template</field>
+            <field name="model_id" ref="mgmtsystem_process.model_process_edition_template" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_process_edition_rule" model="ir.rule">
+            <field name="name">model_process_edition</field>
+            <field name="model_id" ref="mgmtsystem_process.model_process_edition" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_process_edition_history_rule" model="ir.rule">
+            <field name="name">model_process_edition_history</field>
+            <field name="model_id" ref="mgmtsystem_process.model_process_edition_history" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmt_categ_rule" model="ir.rule">
+            <field name="name">model_mgmt_categ</field>
+            <field name="model_id" ref="mgmtsystem_process.model_mgmt_categ" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_process_description_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_process_description</field>
+            <field name="model_id" ref="mgmtsystem_qualitymanual.model_mgmtsystem_process_description" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_qualitymanual_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_qualitymanual</field>
+            <field name="model_id" ref="mgmtsystem_qualitymanual.model_mgmtsystem_qualitymanual" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_survey_type_rule" model="ir.rule">
+            <field name="name">model_survey_type</field>
+            <field name="model_id" ref="mgmtsystem_survey.model_survey_type" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_survey_report_rule" model="ir.rule">
+            <field name="name">model_survey_report</field>
+            <field name="model_id" ref="mgmtsystem_survey.model_survey_report" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_survey_report_actionnonc_rule" model="ir.rule">
+            <field name="name">model_survey_report_actionnonc</field>
+            <field name="model_id" ref="mgmtsystem_survey.model_survey_report_actionnonc" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_target_resources_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_target_resources</field>
+            <field name="model_id" ref="mgmtsystem_target.model_mgmtsystem_target_resources" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_target_category_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_target_category</field>
+            <field name="model_id" ref="mgmtsystem_target.model_mgmtsystem_target_category" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_goal_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_goal</field>
+            <field name="model_id" ref="mgmtsystem_target.model_mgmtsystem_goal" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_indicator_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_indicator</field>
+            <field name="model_id" ref="mgmtsystem_target.model_mgmtsystem_indicator" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_mgmtsystem_indicator_history_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_indicator_history</field>
+            <field name="model_id" ref="mgmtsystem_target.model_mgmtsystem_indicator_history" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_soycalidad_comittee_position_rule" model="ir.rule">
+            <field name="name">model_soycalidad_comittee_position</field>
+            <field name="model_id" ref="soycalidad_comittee.model_soycalidad_comittee_position" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_soycalidad_comittee_function_rule" model="ir.rule">
+            <field name="name">model_soycalidad_comittee_function</field>
+            <field name="model_id" ref="soycalidad_comittee.model_soycalidad_comittee_function" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_soycalidad_comittee_member_rule" model="ir.rule">
+            <field name="name">model_soycalidad_comittee_member</field>
+            <field name="model_id" ref="soycalidad_comittee.model_soycalidad_comittee_member" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_soycalidad_comittee_rule" model="ir.rule">
+            <field name="name">model_soycalidad_comittee</field>
+            <field name="model_id" ref="soycalidad_comittee.model_soycalidad_comittee" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_soycalidad_change_request_origin_rule" model="ir.rule">
+            <field name="name">model_soycalidad_change_request_origin</field>
+            <field name="model_id" ref="soycalidad_improve.model_soycalidad_change_request_origin" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_soycalidad_improve_plan_change_type_rule" model="ir.rule">
+            <field name="name">model_soycalidad_improve_plan_change_type</field>
+            <field name="model_id" ref="soycalidad_improve.model_soycalidad_improve_plan_change_type" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_soycalidad_improve_plan_resource_rule" model="ir.rule">
+            <field name="name">model_soycalidad_improve_plan_resource</field>
+            <field name="model_id" ref="soycalidad_improve.model_soycalidad_improve_plan_resource" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_soycalidad_improve_plan_rule" model="ir.rule">
+            <field name="name">model_soycalidad_improve_plan</field>
+            <field name="model_id" ref="soycalidad_improve.model_soycalidad_improve_plan" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_soycalidad_improve_plan_matrix_rule" model="ir.rule">
+            <field name="name">model_soycalidad_improve_plan_matrix</field>
+            <field name="model_id" ref="soycalidad_improve.model_soycalidad_improve_plan_matrix" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_stock_inspection_item_rule" model="ir.rule">
+            <field name="name">model_stock_inspection_item</field>
+            <field name="model_id" ref="stock_inspection.model_stock_inspection_item" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_stock_inspection_rule" model="ir.rule">
+            <field name="name">model_stock_inspection</field>
+            <field name="model_id" ref="stock_inspection.model_stock_inspection" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_stock_picking_inspection_item_rule" model="ir.rule">
+            <field name="name">model_stock_picking_inspection_item</field>
+            <field name="model_id" ref="stock_inspection.model_stock_picking_inspection_item" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_stock_picking_inspection_rule" model="ir.rule">
+            <field name="name">model_stock_picking_inspection</field>
+            <field name="model_id" ref="stock_inspection.model_stock_picking_inspection" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_stock_inspection_stock_inspection_line_rule" model="ir.rule">
+            <field name="name">model_stock_inspection_stock_inspection_line</field>
+            <field name="model_id" ref="stock_inspection.model_stock_inspection_stock_inspection_line" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_stock_inspection_criterio_rule" model="ir.rule">
+            <field name="name">model_stock_inspection_criterio</field>
+            <field name="model_id" ref="stock_inspection.model_stock_inspection_criterio" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_stock_inspection_stock_inspection_rule" model="ir.rule">
+            <field name="name">model_stock_inspection_stock_inspection</field>
+            <field name="model_id" ref="stock_inspection.model_stock_inspection_stock_inspection" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+    </data>
+</odoo>

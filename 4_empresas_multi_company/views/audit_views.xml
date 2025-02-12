@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_audit_plan_tree" model="ir.ui.view">
+        <field name="name">audit.plan.tree.inherit.multi_company</field>
+        <field name="model">audit.plan</field>
+        <field name="inherit_id" ref="mgmtsystem_audit.view_audit_plan_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_audit_plan_form" model="ir.ui.view">
+        <field name="name">audit.plan.form.inherit.multi_company</field>
+        <field name="model">audit.plan</field>
+        <field name="inherit_id" ref="mgmtsystem_audit.view_audit_plan_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_audit_audit_tree" model="ir.ui.view">
+        <field name="name">audit.audit.tree.inherit.multi_company</field>
+        <field name="model">audit.audit</field>
+        <field name="inherit_id" ref="mgmtsystem_audit.view_audit_audit_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_audit_audit_form" model="ir.ui.view">
+        <field name="name">audit.audit.form.inherit.multi_company</field>
+        <field name="model">audit.audit</field>
+        <field name="inherit_id" ref="mgmtsystem_audit.view_audit_audit_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_audit_report_tree" model="ir.ui.view">
+        <field name="name">audit.report.tree.inherit.multi_company</field>
+        <field name="model">audit.report</field>
+        <field name="inherit_id" ref="mgmtsystem_audit.view_audit_report_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_audit_report_form" model="ir.ui.view">
+        <field name="name">audit.report.form.inherit.multi_company</field>
+        <field name="model">audit.report</field>
+        <field name="inherit_id" ref="mgmtsystem_audit.view_audit_report_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="report_line_view_tree" model="ir.ui.view">
+        <field name="name">report.line.view.tree.inherit.multi_company</field>
+        <field name="model">report.line</field>
+        <field name="inherit_id" ref="mgmtsystem_audit.report_line_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="report_line_view_form" model="ir.ui.view">
+        <field name="name">report.line.view.form.inherit.multi_company</field>
+        <field name="model">report.line</field>
+        <field name="inherit_id" ref="mgmtsystem_audit.report_line_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//group" position="inside">
+                <field name="company_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
