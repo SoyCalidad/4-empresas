@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="context_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet" position="inside">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_internal_issue_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.internal_issue.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.internal_issue</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_internal_issue_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_internal_issue_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.internal_issue.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.internal_issue</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_internal_issue_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_moral_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.moral.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.moral</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_moral_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_moral_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.moral.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.moral</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_moral_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet" position="inside">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_policy_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.policy.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.policy</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_policy_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_policy_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.policy.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.policy</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_policy_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="policy_template_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.policy.template.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.policy.template</field>
+        <field name="inherit_id" ref="mgmtsystem_context.policy_template_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="policy_template_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.policy.template.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.policy.template</field>
+        <field name="inherit_id" ref="mgmtsystem_context.policy_template_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_policy_action_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.policy.action.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.policy.action</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_policy_action_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_policy_action_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.policy.action.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.policy.action</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_policy_action_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet" position="inside">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_external_issue_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.external_issue.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.external_issue</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_policy_action_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_external_issue_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.external_issue.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.external_issue</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_external_issue_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="external_issue_force_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.external_issue.force.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.external_issue.force</field>
+        <field name="inherit_id" ref="mgmtsystem_context.external_issue_force_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="external_issue_force_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.external_issue.force.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.external_issue.force</field>
+        <field name="inherit_id" ref="mgmtsystem_context.external_issue_force_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet" position="inside">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_force_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.force.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.force</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_force_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_force_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.force.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.force</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_force_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet" position="inside">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stakeholders_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.stakeholders.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.stakeholders</field>
+        <field name="inherit_id" ref="mgmtsystem_context.stakeholders_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stakeholders_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.stakeholders.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.stakeholders</field>
+        <field name="inherit_id" ref="mgmtsystem_context.stakeholders_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stakeholder_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.stakeholder.view.tree.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.stakeholder</field>
+        <field name="inherit_id" ref="mgmtsystem_context.stakeholder_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stakeholder_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.stakeholder.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.stakeholder</field>
+        <field name="inherit_id" ref="mgmtsystem_context.stakeholder_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stakeholder_req_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.stakeholder.req.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.stakeholder.req</field>
+        <field name="inherit_id" ref="mgmtsystem_context.stakeholder_req_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stakeholder_req_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.stakeholder.req.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.stakeholder.req</field>
+        <field name="inherit_id" ref="mgmtsystem_context.stakeholder_req_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet" position="inside">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+     <record id="stakeholder_opp_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.stakeholder.opp.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.stakeholder.opp</field>
+        <field name="inherit_id" ref="mgmtsystem_context.stakeholder_opp_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="stakeholder_opp_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.stakeholder.opp.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.stakeholder.opp</field>
+        <field name="inherit_id" ref="mgmtsystem_context.stakeholder_opp_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet" position="inside">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+     <record id="organization_chart_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.organization_chart.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.organization_chart</field>
+        <field name="inherit_id" ref="mgmtsystem_context.organization_chart_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="organization_chart_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.organization_chart.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.organization_chart</field>
+        <field name="inherit_id" ref="mgmtsystem_context.organization_chart_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+     <record id="pest_analysis_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.pest.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.pest</field>
+        <field name="inherit_id" ref="mgmtsystem_context.pest_analysis_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="pest_analysis_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.pest.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.pest</field>
+        <field name="inherit_id" ref="mgmtsystem_context.pest_analysis_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="pest_factor_view_tree" model="ir.ui.view">
+        <field name="name">pest.factor.view.tree.inherit.multi_company</field>
+        <field name="model">pest.factor</field>
+        <field name="inherit_id" ref="mgmtsystem_context.pest_factor_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="pest_factor_view_form" model="ir.ui.view">
+        <field name="name">pest.factor.view.form.inherit.multi_company</field>
+        <field name="model">pest.factor</field>
+        <field name="inherit_id" ref="mgmtsystem_context.pest_factor_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="pest_factor_type_view_tree" model="ir.ui.view">
+        <field name="name">pest.factor.type.view.tree.inherit.multi_company</field>
+        <field name="model">pest.factor.type</field>
+        <field name="inherit_id" ref="mgmtsystem_context.pest_factor_type_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="pest_factor_type_view_form" model="ir.ui.view">
+        <field name="name">pest.factor.type.view.form.inherit.multi_company</field>
+        <field name="model">pest.factor.type</field>
+        <field name="inherit_id" ref="mgmtsystem_context.pest_factor_type_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet" position="inside">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_swot_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.swot.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.swot</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_swot_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="context_swot_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.swot.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.swot</field>
+        <field name="inherit_id" ref="mgmtsystem_context.context_swot_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="cross_swot_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.cross.swot.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.cross.swot</field>
+        <field name="inherit_id" ref="mgmtsystem_context.cross_swot_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="cross_swot_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.cross.swot.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.context.cross.swot</field>
+        <field name="inherit_id" ref="mgmtsystem_context.cross_swot_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

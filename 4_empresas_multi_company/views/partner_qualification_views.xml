@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_evaluation_tree" model="ir.ui.view">
+        <field name="name">res.partner.evaluation.tree.inherit.multi_company</field>
+        <field name="model">res.partner.evaluation</field>
+        <field name="inherit_id" ref="mgmtsystem_partner_qualification.res_partner_evaluation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_partner_evaluation_form" model="ir.ui.view">
+        <field name="name">res.partner.evaluation.form.inherit.multi_company</field>
+        <field name="model">res.partner.evaluation</field>
+        <field name="inherit_id" ref="mgmtsystem_partner_qualification.res_partner_evaluation_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_partner_evaluation_item_tree" model="ir.ui.view">
+        <field name="name">res.partner.evaluation.item.tree.inherit.multi_company</field>
+        <field name="model">res.partner.evaluation.item</field>
+        <field name="inherit_id" ref="mgmtsystem_partner_qualification.res_partner_evaluation_item_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_partner_evaluation_item_form" model="ir.ui.view">
+        <field name="name">res.partner.evaluation.item.form.inherit.multi_company</field>
+        <field name="model">res.partner.evaluation.item</field>
+        <field name="inherit_id" ref="mgmtsystem_partner_qualification.res_partner_evaluation_item_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//group" position="after">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="initial_evaluation_view_tree" model="ir.ui.view">
+        <field name="name">evaluation.initial_evaluation.view.tree.inherit.multi_company</field>
+        <field name="model">evaluation.initial_evaluation</field>
+        <field name="inherit_id" ref="mgmtsystem_partner_qualification.initial_evaluation_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="initial_evaluation_view_form" model="ir.ui.view">
+        <field name="name">evaluation.initial_evaluation.view.form.inherit.multi_company</field>
+        <field name="model">evaluation.initial_evaluation</field>
+        <field name="inherit_id" ref="mgmtsystem_partner_qualification.initial_evaluation_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="partner_initial_evaluation_view_tree" model="ir.ui.view">
+        <field name="name">res.partner.initial_evaluation.view.tree.inherit.multi_company</field>
+        <field name="model">res.partner.initial_evaluation</field>
+        <field name="inherit_id" ref="mgmtsystem_partner_qualification.partner_initial_evaluation_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

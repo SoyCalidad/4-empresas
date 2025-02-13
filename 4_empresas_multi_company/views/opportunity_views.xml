@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="evaluation_result_view_form" model="ir.ui.view">
+        <field name="name">evaluation.result.view.form.inherit.multi_company</field>
+        <field name="model">evaluation.result</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.evaluation_result_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//group" position="after">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="evaluation_evaluation_form" model="ir.ui.view">
+        <field name="name">evaluation.evaluation.form.inherit.multi_company</field>
+        <field name="model">evaluation.evaluation</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.evaluation_evaluation_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//group" position="after">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="evaluation_criterio_form" model="ir.ui.view">
+        <field name="name">evaluation.criterio.form.inherit.multi_company</field>
+        <field name="model">evaluation.criterio</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.evaluation_criterio_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//group" position="after">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="evaluation_criterio_line_view_tree" model="ir.ui.view">
+        <field name="name">evaluation.criterio.line.view.tree.inherit.multi_company</field>
+        <field name="model">evaluation.criterio.line</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.evaluation_criterio_line_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="evaluation_criterio_line_view_form" model="ir.ui.view">
+        <field name="name">evaluation.criterio.line.view.form.inherit.multi_company</field>
+        <field name="model">evaluation.criterio.line</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.evaluation_criterio_line_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//group" position="after">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_matrix_matrix_tree" model="ir.ui.view">
+        <field name="name">matrix.matrix.tree.inherit.multi_company</field>
+        <field name="model">matrix.matrix</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.view_matrix_matrix_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_matrix_matrix_form" model="ir.ui.view">
+        <field name="name">matrix.matrix.form.inherit.multi_company</field>
+        <field name="model">matrix.matrix</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.view_matrix_matrix_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_matrix_block_tree" model="ir.ui.view">
+        <field name="name">matrix.block.tree.inherit.multi_company</field>
+        <field name="model">matrix.block</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.view_matrix_block_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_matrix_block_form" model="ir.ui.view">
+        <field name="name">matrix.block.form.inherit.multi_company</field>
+        <field name="model">matrix.block</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.view_matrix_block_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_matrix_block_line_tree" model="ir.ui.view">
+        <field name="name">matrix.block.line.tree.inherit.multi_company</field>
+        <field name="model">matrix.block.line</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.view_matrix_block_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_matrix_block_line_form" model="ir.ui.view">
+        <field name="name">matrix.block.line.form.inherit.multi_company</field>
+        <field name="model">matrix.block.line</field>
+        <field name="inherit_id" ref="mgmtsystem_opportunity.view_matrix_block_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

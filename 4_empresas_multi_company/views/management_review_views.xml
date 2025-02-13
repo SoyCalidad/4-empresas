@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="management_review_team_line_tree_view" model="ir.ui.view">
+        <field name="name">management.review.team.line.tree.view.inherit.multi_company</field>
+        <field name="model">management.review.team.line</field>
+        <field name="inherit_id" ref="mgmtsystem_management_review.management_review_team_line_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="management_review_team_line_form_view" model="ir.ui.view">
+        <field name="name">management.review.team.line.form.view.inherit.multi_company</field>
+        <field name="model">management.review.team.line</field>
+        <field name="inherit_id" ref="mgmtsystem_management_review.management_review_team_line_form_view"/>
+        <field name="arch" type="xml">
+           <xpath expr="//form//group" position="after">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="qlty_job_view_tree" model="ir.ui.view">
+        <field name="name">review.team.job.view.tree.inherit.multi_company</field>
+        <field name="model">review.team.job</field>
+        <field name="inherit_id" ref="mgmtsystem_management_review.qlty_job_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="qlty_job_view_form" model="ir.ui.view">
+        <field name="name">review.team.job.view.form.inherit.multi_company</field>
+        <field name="model">review.team.job</field>
+        <field name="inherit_id" ref="mgmtsystem_management_review.qlty_job_view_form"/>
+        <field name="arch" type="xml">
+           <xpath expr="//form//group" position="after">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="management_review_plan_tree_view" model="ir.ui.view">
+        <field name="name">management.review.plan.tree.view.inherit.multi_company</field>
+        <field name="model">management.review.plan</field>
+        <field name="inherit_id" ref="mgmtsystem_management_review.management_review_plan_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="management_review_plan_form_view" model="ir.ui.view">
+        <field name="name">management.review.plan.form.view.inherit.multi_company</field>
+        <field name="model">management.review.plan</field>
+        <field name="inherit_id" ref="mgmtsystem_management_review.management_review_plan_form_view"/>
+        <field name="arch" type="xml">
+           <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="management_review_tree_view" model="ir.ui.view">
+        <field name="name">management.review.tree.view.inherit.multi_company</field>
+        <field name="model">management.review</field>
+        <field name="inherit_id" ref="mgmtsystem_management_review.management_review_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="management_review_form_view" model="ir.ui.view">
+        <field name="name">management.review.form.view.inherit.multi_company</field>
+        <field name="model">management.review</field>
+        <field name="inherit_id" ref="mgmtsystem_management_review.management_review_form_view"/>
+        <field name="arch" type="xml">
+           <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

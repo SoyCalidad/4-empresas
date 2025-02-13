@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="process_resource_type_view_tree" model="ir.ui.view">
+        <field name="name">mgmt.process.resource.type.view.tree.inherit.multi_company</field>
+        <field name="model">mgmt.process.resource.type</field>
+        <field name="inherit_id" ref="mgmtsystem_process_integration.process_resource_type_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="process_resource_view_tree" model="ir.ui.view">
+        <field name="name">mgmt.process.resource.view.tree.inherit.multi_company</field>
+        <field name="model">mgmt.process.resource</field>
+        <field name="inherit_id" ref="mgmtsystem_process_integration.process_resource_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmt_process_interaction_view_tree" model="ir.ui.view">
+        <field name="name">mgmt.process.interaction.view.tree.inherit.multi_company</field>
+        <field name="model">mgmt.process.interaction</field>
+        <field name="inherit_id" ref="mgmtsystem_process_integration.mgmt_process_interaction_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmt_proces_line_client_supplier_view_tree" model="ir.ui.view">
+        <field name="name">mgmt.process.line.client_supplier.view.tree.inherit.multi_company</field>
+        <field name="model">mgmt.process.line.client_supplier</field>
+        <field name="inherit_id" ref="mgmtsystem_process_integration.mgmt_proces_line_client_supplier_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="process_line_view_tree" model="ir.ui.view">
+        <field name="name">mgmt.process.line.view.tree.inherit.multi_company</field>
+        <field name="model">mgmt.process.line</field>
+        <field name="inherit_id" ref="mgmtsystem_process_integration.process_line_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="process_line_input_view_tree" model="ir.ui.view">
+        <field name="name">mgmt.process.line.input.view.tree.inherit.multi_company</field>
+        <field name="model">mgmt.process.line.input</field>
+        <field name="inherit_id" ref="mgmtsystem_process_integration.process_line_input_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="process_line_output_view_tree" model="ir.ui.view">
+        <field name="name">mgmt.process.line.output.view.tree.inherit.multi_company</field>
+        <field name="model">mgmt.process.line.output</field>
+        <field name="inherit_id" ref="mgmtsystem_process_integration.process_line_output_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

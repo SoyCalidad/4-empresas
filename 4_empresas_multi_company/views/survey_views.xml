@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_survey_report_actionnonc_tree" model="ir.ui.view">
+        <field name="name">survey.report.actionnonc.tree.inherit.multi_company</field>
+        <field name="model">survey.report.actionnonc</field>
+        <field name="inherit_id" ref="mgmtsystem_survey.view_survey_report_actionnonc_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

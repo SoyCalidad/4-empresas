@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_job_function_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.function.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.function</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_function_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_evaluation_factor_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.evaluation_factor.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.evaluation_factor</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_evaluation_factor_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_coordinator_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.coordinator.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.coordinator</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_coordinator_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_supervisor_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.supervisor.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.supervisor</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_supervisor_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_supervised_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.supervised.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.supervised</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_supervised_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_profile_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.profile.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.profile</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_profile_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_profile_specialty_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.profile.specialty.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.profile.specialty</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_profile_specialty_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_profile_experience_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.profile.experience.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.profile.experience</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_profile_experience_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_skill_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.skill.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.skill</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_skill_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_generic_skill_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.generic_skill.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.generic_skill</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_generic_skill_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_workteam_skill_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.workteam_skill.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.workteam_skill</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_workteam_skill_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_personal_skill_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.personal_skill.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.personal_skill</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_personal_skill_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_job_strategic_skill_view_tree" model="ir.ui.view">
+        <field name="name">hr.job.strategic_skill.view.tree.inherit.multi_company</field>
+        <field name="model">hr.job.strategic_skill</field>
+        <field name="inherit_id" ref="hr_job_functions.hr_job_strategic_skill_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

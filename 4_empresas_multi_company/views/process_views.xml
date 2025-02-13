@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mgmt_categ_view_tree" model="ir.ui.view">
+        <field name="name">mgmt.categ.view.tree.inherit.multi_company</field>
+        <field name="model">mgmt.categ</field>
+        <field name="inherit_id" ref="mgmtsystem_process.mgmt_categ_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmt_categ_form" model="ir.ui.view">
+        <field name="name">mgmt_categ_form.inherit.multi_company</field>
+        <field name="model">mgmt.categ</field>
+        <field name="inherit_id" ref="mgmtsystem_process.mgmt_categ_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmt_process_categ_type_view_tree" model="ir.ui.view">
+        <field name="name">mgmt.categ.type.view.tree.inherit.multi_company</field>
+        <field name="model">mgmt.categ.type</field>
+        <field name="inherit_id" ref="mgmtsystem_process.mgmt_process_categ_type_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmt_process_tree" model="ir.ui.view">
+        <field name="name">mgmt_process_tree.inherit.multi_company</field>
+        <field name="model">mgmt.process</field>
+        <field name="inherit_id" ref="mgmtsystem_process.mgmt_process_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmt_process_form" model="ir.ui.view">
+        <field name="name">mgmt_process_form.inherit.multi_company</field>
+        <field name="model">mgmt.process</field>
+        <field name="inherit_id" ref="mgmtsystem_process.mgmt_process_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmt_edition_abbreviation_tree" model="ir.ui.view">
+        <field name="name">view.edition.abbreviation.tree.inherit.multi_company</field>
+        <field name="model">edition.abbreviation</field>
+        <field name="inherit_id" ref="mgmtsystem_process.mgmt_edition_abbreviation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="process_edition_template_view_tree" model="ir.ui.view">
+        <field name="name">process.edition.template.view.tree.inherit.multi_company</field>
+        <field name="model">process.edition.template</field>
+        <field name="inherit_id" ref="mgmtsystem_process.process_edition_template_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="process_edition_view_tree" model="ir.ui.view">
+        <field name="name">process.edition.view.tree.inherit.multi_company</field>
+        <field name="model">process.edition</field>
+        <field name="inherit_id" ref="mgmtsystem_process.view_wiki_tree_view_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="process_edition_view_form" model="ir.ui.view">
+        <field name="name">process_edition_view_form.inherit.multi_company</field>
+        <field name="model">process.edition</field>
+        <field name="inherit_id" ref="mgmtsystem_process.system_process_edition_form_view_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mgmtsystem_nonconformity_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.nonconformity.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.nonconformity</field>
+        <field name="inherit_id" ref="mgmtsystem_nonconformity.view_mgmtsystem_nonconformity_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_nonconformity_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.nonconformity.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.nonconformity</field>
+        <field name="inherit_id" ref="mgmtsystem_nonconformity.view_mgmtsystem_nonconformity_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmtsystem_nonconformity_cause_why_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.nonconformity.cause_why.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.nonconformity.cause_why</field>
+        <field name="inherit_id" ref="mgmtsystem_nonconformity.mgmtsystem_nonconformity_cause_why_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmtsystem_nonconformity_cause_why_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.nonconformity.cause_why.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.nonconformity.cause_why</field>
+        <field name="inherit_id" ref="mgmtsystem_nonconformity.mgmtsystem_nonconformity_cause_why_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//group" position="after">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmtsystem_nonconformity_cause_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.nonconformity.cause.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.nonconformity.cause</field>
+        <field name="inherit_id" ref="mgmtsystem_nonconformity.mgmtsystem_nonconformity_cause_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mgmtsystem_nonconformity_cause_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.nonconformity.cause.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.nonconformity.cause</field>
+        <field name="inherit_id" ref="mgmtsystem_nonconformity.mgmtsystem_nonconformity_cause_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//group" position="after">
+                <group>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

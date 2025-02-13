@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="target_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.target.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.target</field>
+        <field name="inherit_id" ref="mgmtsystem_target.target_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="target_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.target.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.target</field>
+        <field name="inherit_id" ref="mgmtsystem_target.target_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="goal_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.goal.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.goal</field>
+        <field name="inherit_id" ref="mgmtsystem_target.goal_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="indicator_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.indicator.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.indicator</field>
+        <field name="inherit_id" ref="mgmtsystem_target.indicator_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="indicator_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.indicator.view.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.indicator</field>
+        <field name="inherit_id" ref="mgmtsystem_target.indicator_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="measurement_history_view_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.indicator.history.view.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.indicator.history</field>
+        <field name="inherit_id" ref="mgmtsystem_target.measurement_history_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

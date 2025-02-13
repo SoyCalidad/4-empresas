@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_mgmtsystem_calibration_plan_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.calibration.plan.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.calibration.plan</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_calibration_plan_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_calibration_plan_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.calibration.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.calibration.plan</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_calibration_plan_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_calibration_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.calibration.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.calibration</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_calibration_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_calibration_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.calibration.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.calibration</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_calibration_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_calibration_line_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.calibration.line.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.calibration.line</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_calibration_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_calibration_line_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.calibration.line.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.calibration.line</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_calibration_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_infrastructure_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.infrastructure.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.infrastructure</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_infrastructure_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_infrastructure_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.infrastructure.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.infrastructure</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_infrastructure_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_maintenance_plan_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.maintenance.plan.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.maintenance.plan</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_maintenance_plan_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_maintenance_plan_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.maintenance.plan.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.maintenance.plan</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_maintenance_plan_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_maintenance_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.maintenance.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.maintenance</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_maintenance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_maintenance_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.maintenance.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.maintenance</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_maintenance_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_maintenance_line_tree" model="ir.ui.view">
+        <field name="name">mgmtsystem.maintenance.line.tree.inherit.multi_company</field>
+        <field name="model">mgmtsystem.maintenance.line</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_maintenance_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_mgmtsystem_maintenance_line_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.maintenance.line.form.inherit.multi_company</field>
+        <field name="model">mgmtsystem.maintenance.line</field>
+        <field name="inherit_id" ref="mgmtsystem_infrastructure.view_mgmtsystem_maintenance_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

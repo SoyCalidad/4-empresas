@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_comunication_plan_tree" model="ir.ui.view">
+        <field name="name">comunication.plan.tree.inherit.multi_company</field>
+        <field name="model">comunication.plan</field>
+        <field name="inherit_id" ref="mgmtsystem_comunication.view_comunication_plan_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_comunication_plan_form" model="ir.ui.view">
+        <field name="name">comunication.plan.form.inherit.multi_company</field>
+        <field name="model">comunication.plan</field>
+        <field name="inherit_id" ref="mgmtsystem_comunication.view_comunication_plan_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_plan_line_tree" model="ir.ui.view">
+        <field name="name">comunication.plan.line.tree.inherit.multi_company</field>
+        <field name="model">comunication.plan.line</field>
+        <field name="inherit_id" ref="mgmtsystem_comunication.view_plan_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_plan_line_form" model="ir.ui.view">
+        <field name="name">comunication.plan.line.form.inherit.multi_company</field>
+        <field name="model">comunication.plan.line</field>
+        <field name="inherit_id" ref="mgmtsystem_comunication.view_plan_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_record_meeting_tree" model="ir.ui.view">
+        <field name="name">record.meeting.tree.inherit.multi_company</field>
+        <field name="model">record.meeting</field>
+        <field name="inherit_id" ref="mgmtsystem_comunication.view_record_meeting_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+              <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_record_meeting_form" model="ir.ui.view">
+        <field name="name">record.meeting.form.inherit.multi_company</field>
+        <field name="model">record.meeting</field>
+        <field name="inherit_id" ref="mgmtsystem_comunication.view_record_meeting_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
