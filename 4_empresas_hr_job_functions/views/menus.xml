@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <menuitem id="hr_job_menu"
+                  name="Puestos de trabajo"
+                  parent="hr.menu_human_resources_configuration"
+                  groups="hr.group_hr_manager,hr.group_hr_user,base.group_user"
+                  sequence="100" />
+
+        <menuitem id="hr_job_profile_menu_action"
+                  name="Perfiles del Puesto"
+                  action="hr_job_profile_action"
+                  parent="hr_job_menu"
+                  groups="hr.group_hr_manager,hr.group_hr_user,base.group_user"
+                  sequence="1" />
+</odoo>
