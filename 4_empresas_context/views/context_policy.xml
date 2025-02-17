@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="politica_de_calidad" inherit_id="mgmtsystem_context.politica_de_calidad">
+        <xpath expr="//div[@name='principal']" position="attributes">
+            <attribute name="style">text-align: justify</attribute>
+        </xpath>
+    </template>
+
+    <template id="politica_de_calidad_simple" inherit_id="mgmtsystem_context.politica_de_calidad_simple">
+        <xpath expr="//div[@name='principal']" position="attributes">
+            <attribute name="style">text-align: justify</attribute>
+        </xpath>
+    </template>
+</odoo>
