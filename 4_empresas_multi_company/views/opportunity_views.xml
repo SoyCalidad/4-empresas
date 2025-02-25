@@ -13,6 +13,18 @@
         </field>
     </record>
 
+    <record id="evaluation_evaluation_view_tree" model="ir.ui.view">
+        <field name="name">evaluation.evaluation.view.tree</field>
+        <field name="model">evaluation.evaluation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="criterio_ids"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
     <record id="evaluation_evaluation_form" model="ir.ui.view">
         <field name="name">evaluation.evaluation.form.inherit.multi_company</field>
         <field name="model">evaluation.evaluation</field>
@@ -23,6 +35,22 @@
                     <field name="company_id" groups="base.group_multi_company"/>
                 </group>
             </xpath>
+            <xpath expr="//field[@name='criterio_ids']" position="replace">
+                <field name="criterio_ids"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="evaluation_criterio_view_tree" model="ir.ui.view">
+        <field name="name">evaluation.criterio.view.tree</field>
+        <field name="model">evaluation.criterio</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="line_ids" string="Alternativas"/>
+                <field name="company_id"/>
+            </tree>
         </field>
     </record>
 
@@ -31,10 +59,11 @@
         <field name="model">evaluation.criterio</field>
         <field name="inherit_id" ref="mgmtsystem_opportunity.evaluation_criterio_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//form//group" position="after">
-                <group>
-                    <field name="company_id" groups="base.group_multi_company"/>
-                </group>
+            <xpath expr="//field[@name='description']" position="after">
+                <field name="company_id"/>
+            </xpath>
+            <xpath expr="//field[@name='line_ids']" position="replace">
+                <field name="line_ids"/>
             </xpath>
         </field>
     </record>
@@ -44,8 +73,14 @@
         <field name="model">evaluation.criterio.line</field>
         <field name="inherit_id" ref="mgmtsystem_opportunity.evaluation_criterio_line_view_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//tree" position="inside">
-              <field name="company_id" groups="base.group_multi_company"/>
+            <xpath expr="//tree" position="replace">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="value_less"/>
+                    <field name="value_high"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
             </xpath>
         </field>
     </record>
