@@ -26,7 +26,6 @@
         'mgmtsystem_process_integration',
         'mgmtsystem_survey',
         'mgmtsystem_target',
-        'soycalidad_crm',
         'stock_inspection',
     ],
     'data': [
