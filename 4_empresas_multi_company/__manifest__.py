@@ -27,10 +27,12 @@
         'mgmtsystem_survey',
         'mgmtsystem_target',
         'stock_inspection',
+        'dms',
     ],
     'data': [
         'security/multi_company.xml',
         'security/audit_security.xml',
+        'security/dms_security.xml',
 
         'views/action_views.xml',
         'views/audit_views.xml',
