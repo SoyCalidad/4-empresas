@@ -609,60 +609,70 @@ class respartnerevaluation(models.Model):
     _inherit = 'res.partner.evaluation'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+    active = fields.Boolean('Active', default=True)
 
 
 class respartnerevaluationitem(models.Model):
     _inherit = 'res.partner.evaluation.item'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+    active = fields.Boolean('Active', default=True)
 
 
 class respartnerevaluationitemline(models.Model):
     _inherit = 'res.partner.evaluation.item.line'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+    active = fields.Boolean('Active', default=True)
 
 
 class respartnerevaluationhistory(models.Model):
     _inherit = 'res.partner.evaluation.history'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+    active = fields.Boolean('Active', default=True)
 
 
 class respartnerevaluationhistoryitem(models.Model):
     _inherit = 'res.partner.evaluation.history.item'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+    active = fields.Boolean('Active', default=True)
 
 
 class respartnerevaluationhistoryitemline(models.Model):
     _inherit = 'res.partner.evaluation.history.item.line'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+    active = fields.Boolean('Active', default=True)
 
 
 class evaluationinitial_evaluationitem(models.Model):
     _inherit = 'evaluation.initial_evaluation.item'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+    active = fields.Boolean('Active', default=True)
 
 
 class evaluationinitial_evaluation(models.Model):
     _inherit = 'evaluation.initial_evaluation'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+    active = fields.Boolean('Active', default=True)
 
 
 class respartnerinitial_evaluationitem(models.Model):
     _inherit = 'res.partner.initial_evaluation.item'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+    active = fields.Boolean('Active', default=True)
 
 
 class respartnerinitial_evaluation(models.Model):
     _inherit = 'res.partner.initial_evaluation'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+    active = fields.Boolean('Active', default=True)
 
 
 class mgmtcategtype(models.Model):
