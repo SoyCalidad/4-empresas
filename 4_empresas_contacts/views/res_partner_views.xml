@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_partner_filter" model="ir.ui.view">
+        <field name="name">res.partner.select.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </xpath>
+            <xpath expr="//filter[@name='group_company']" position="attributes">
+                <attribute name="context">{'group_by': 'company_id'}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
