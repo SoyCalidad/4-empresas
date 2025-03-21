@@ -891,6 +891,34 @@
             <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
 
+        <record id="model_survey_survey_rule" model="ir.rule">
+            <field name="name">model_survey_survey</field>
+            <field name="model_id" ref="survey.model_survey_survey"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id','=',False), ('company_id','in', company_ids)]</field>
+        </record>
+
+        <record id="model_survey_question_rule" model="ir.rule">
+            <field name="name">model_survey_question</field>
+            <field name="model_id" ref="survey.model_survey_question"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id','=',False), ('company_id','in', company_ids)]</field>
+        </record>
+
+        <record id="model_survey_user_input_rule" model="ir.rule">
+            <field name="name">model_survey_user_input</field>
+            <field name="model_id" ref="survey.model_survey_user_input"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id','=',False), ('company_id','in', company_ids)]</field>
+        </record>
+
+        <record id="model_survey_user_input_line_rule" model="ir.rule">
+            <field name="name">model_survey_user_input_line</field>
+            <field name="model_id" ref="survey.model_survey_user_input_line"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|', ('company_id','=',False), ('company_id','in', company_ids)]</field>
+        </record>
+
         <record id="model_survey_type_rule" model="ir.rule">
             <field name="name">model_survey_type</field>
             <field name="model_id" ref="mgmtsystem_survey.model_survey_type" />

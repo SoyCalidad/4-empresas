@@ -897,6 +897,29 @@ class mgmtsystemqualitymanual(models.Model):
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
 
 
+class Survey(models.Model):
+    _inherit = 'survey.survey'
+
+    company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
+
+
+class SurveyQuestion(models.Model):
+    _inherit = 'survey.question'
+
+    company_id = fields.Many2one('res.company', related='survey_id.company_id', string='Compañia', store=True)
+
+class SurveyUserInput(models.Model):
+    _inherit = 'survey.user_input'
+
+    company_id = fields.Many2one('res.company', related='survey_id.company_id', string='Compañia', store=True)
+
+
+class SurveyUserInputLine(models.Model):
+    _inherit = 'survey.user_input_line'
+
+    company_id = fields.Many2one('res.company', related='survey_id.company_id', string='Compañia', store=True)
+
+
 class surveytype(models.Model):
     _inherit = 'survey.type'
 
