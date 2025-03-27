@@ -1,4 +1,4 @@
-from odoo import http
+from odoo import http, _, models
 from odoo.exceptions import UserError
 from odoo.http import request
 from odoo.addons.hr_organizational_chart.controller.main import EmployeeChart
@@ -22,9 +22,10 @@ class EmployeeChart(EmployeeChart):
             return key
 
         elif len(employees) == 0:
-            raise UserError(
-                "No top-level manager found for the employee in the chart.")
+            raise UserError(_(
+                "No top-level manager found for the employee in the chart."
+            ))
         else:
             for emp in employees:
                 names.append(emp.name)
-            raise UserError("These employees have no manager: %s" % (names))
+            raise UserError(_("These employees have no manager: %s") % (", ".join(names)))
