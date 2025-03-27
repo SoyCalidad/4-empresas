@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend_org_2" name="Org Chart" inherit_id="web.assets_backend">
+       <xpath expr=".">
+            <script type="text/javascript" src="/4_empresas_hr_organizational_chart/static/src/js/organizational_view.js"/>
+        </xpath>
+    </template>
+</odoo>
