@@ -7,11 +7,12 @@
     'website': 'https://www.soycalidad.com',
     'license': 'Other proprietary',
     'category': 'Uncategorized',
-    'depends': ['base', 'mgmtsystem_context'],
+    'depends': ['base', 'mgmtsystem_context', '4_empresas_hr_organizational_chart'],
     'data': [
         'views/context_system_views.xml',
         'views/context_views.xml',
         'views/context_policy.xml',
+        'views/organization_chart.xml',
         'views/menus.xml',
     ],
     'installable': True,

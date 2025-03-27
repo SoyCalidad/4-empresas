@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="organization_chart_view_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.context.organization_chart.view.form.inherit</field>
+        <field name="model">mgmtsystem.context.organization_chart</field>
+        <field name="inherit_id" ref="mgmtsystem_context.organization_chart_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='%(hr_organizational_chart.action_organizational_chart)d']" position="replace">
+                <field name="company_id" invisible="1"/>
+                <button string="Ver Organigrama"
+                        name="%(4_empresas_hr_organizational_chart.action_organizational_chart)d"
+                        type="action"
+                        class="oe_highlight"
+                        icon="fa-users"
+                        context="{'default_company_id': company_id}" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
