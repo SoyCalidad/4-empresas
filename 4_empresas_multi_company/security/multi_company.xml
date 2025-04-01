@@ -940,6 +940,13 @@
             <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
 
+        <record id="model_mgmtsystem_target_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_target</field>
+            <field name="model_id" ref="mgmtsystem_target.model_mgmtsystem_target" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
         <record id="model_mgmtsystem_target_resources_rule" model="ir.rule">
             <field name="name">model_mgmtsystem_target_resources</field>
             <field name="model_id" ref="mgmtsystem_target.model_mgmtsystem_target_resources" />
