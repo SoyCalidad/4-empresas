@@ -1062,4 +1062,3 @@ class stock_inspectionstock_inspection(models.Model):
     _inherit = 'stock_inspection.stock_inspection'
 
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
-

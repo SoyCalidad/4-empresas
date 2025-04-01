@@ -54,6 +54,7 @@
         'views/qualitymanual_views.xml',
         'views/survey_views.xml',
         'views/target_views.xml',
+        'views/res_partner_views.xml',
     ],
     'demo': [
     ],
