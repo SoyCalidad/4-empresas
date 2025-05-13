@@ -1,0 +1,20 @@
+{
+    'name': '4-Empresas Maintenance',
+    'version': '1.0',
+    'description': '4-Empresas Maintenance',
+    'summary': '4-Empresas Maintenance',
+    'author': 'Soy Calidad',
+    'website': 'https://www.soycalidad.com',
+    'license': 'Other proprietary',
+    'category': 'Uncategorized',
+    'depends': ['base', 'maintenance'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/maintenance_type_views.xml',
+        'views/maintenance_views.xml',
+        'views/menus.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+    'application': False,
+}

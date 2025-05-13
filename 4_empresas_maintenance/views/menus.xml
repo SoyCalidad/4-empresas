@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_equipment_form"
+        name="Equipos"
+        parent="maintenance.menu_equipment_form"
+        action="maintenance.hr_equipment_action"
+        groups="maintenance.group_equipment_manager,base.group_user"
+        sequence="1"/>
+
+    <menuitem
+        id="menu_maintenance_equipment_type_action"
+        name="Tipos de equipos"
+        parent="maintenance.menu_equipment_form"
+        action="maintenance_equipment_type_action"
+        groups="maintenance.group_equipment_manager,base.group_user"
+        sequence="2"/>
+</odoo>
