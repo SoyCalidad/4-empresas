@@ -415,6 +415,13 @@
             <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
 
+        <record id="model_mgmtsystem_context_swot_rule" model="ir.rule">
+            <field name="name">model_mgmtsystem_context_swot</field>
+            <field name="model_id" ref="mgmtsystem_context.model_mgmtsystem_context_swot" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
         <record id="model_hr_employee_document_type_rule" model="ir.rule">
             <field name="name">model_hr_employee_document_type</field>
             <field name="model_id" ref="mgmtsystem_employees.model_hr_employee_document_type" />
@@ -1090,6 +1097,13 @@
         <record id="model_stock_inspection_stock_inspection_rule" model="ir.rule">
             <field name="name">model_stock_inspection_stock_inspection</field>
             <field name="model_id" ref="stock_inspection.model_stock_inspection_stock_inspection" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <record id="model_res_users_rule" model="ir.rule">
+            <field name="name">model_res_users</field>
+            <field name="model_id" ref="base.model_res_users" />
             <field name="global" eval="True" />
             <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
