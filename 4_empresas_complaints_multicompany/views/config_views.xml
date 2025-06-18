@@ -1,0 +1,12 @@
+<odoo>
+    <!-- CONFIGURACIÓN -> MOTIVOS -->
+    <record model="ir.actions.act_window" id="complaint_complaint_reason_action">
+        <field name="name">Motivos</field>
+        <field name="res_model">complaint.complaint.reason</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Motivos" id="mitem_complaint_complaint_reason" 
+        parent="mgmtsystem_complaints.menu_configuration_complaint"
+        action="complaint_complaint_reason_action" />
+</odoo>

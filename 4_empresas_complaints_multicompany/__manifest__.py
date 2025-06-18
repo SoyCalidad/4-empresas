@@ -17,7 +17,7 @@
         'views/complaint_views.xml',
         'views/res_company.xml',
         'templates/complaint_templates.xml',
-
+        'views/config_views.xml',
     ],
     'assets': {
         'web.assets_frontend': [
