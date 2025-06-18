@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Company Form View - Agregar pestaña de Reclamos -->
+    <record id="view_company_form_complaints" model="ir.ui.view">
+        <field name="name">res.company.form.complaints</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Complaint Settings" name="complaint_settings">
+                    <group>
+                        <group string="URL Configuration">
+                            <field name="complaint_form_active"/>
+                            <field name="complaint_slug" 
+                                   attrs="{'required': [('complaint_form_active', '=', True)],
+                                           'readonly': [('complaint_form_active', '=', False)]}"/>
+                        </group>
+                        <group string="Form Display">
+                            <field name="complaint_form_title" 
+                                   attrs="{'invisible': [('complaint_form_active', '=', False)]}"/>
+                            <field name="complaint_form_subtitle" 
+                                   attrs="{'invisible': [('complaint_form_active', '=', False)]}"/>
+                        </group>
+                    </group>
+                    <group string="Success Message" 
+                           attrs="{'invisible': [('complaint_form_active', '=', False)]}">
+                        <field name="complaint_success_message" nolabel="1"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Company Tree View - Mostrar estado del formulario -->
+    <!-- <record id="view_company_tree_complaints" model="ir.ui.view">
+        <field name="name">res.company.tree.complaints</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_tree"/>
+        <field name="arch" type="xml">
+            <field name="currency_id" position="after">
+                <field name="complaint_form_active" string="Complaint Form"/>
+                <field name="complaint_slug" string="URL Slug"/>
+            </field>
+        </field>
+    </record> -->
+
+</odoo>

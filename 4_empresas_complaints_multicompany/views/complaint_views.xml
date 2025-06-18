@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Complaint Form View -->
+    <record id="view_complaint_complaint_form_multicompany" model="ir.ui.view">
+        <field name="name">complaint.complaint.form.multicompany</field>
+        <field name="model">complaint.complaint</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_complaint_form"/>
+        <field name="arch" type="xml">
+            <field name="elaborate_ids" position="after">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Complaint Tree View -->
+    <record id="view_complaint_complaint_tree_multicompany" model="ir.ui.view">
+        <field name="name">complaint.complaint.tree.multicompany</field>
+        <field name="model">complaint.complaint</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_complaint_tree"/>
+        <field name="arch" type="xml">
+            <field name="state" position="after">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </field>
+        </field>
+    </record>
+
+
+
+    <!-- ========================================== -->
+    <!-- COMPLAINT CATEGORY VIEWS -->
+    <!-- ========================================== -->
+
+    <!-- Complaint Category Form View -->
+    <!-- <record id="view_complaint_categ_form_multicompany" model="ir.ui.view">
+        <field name="name">complaint.categ.form.multicompany</field>
+        <field name="model">complaint.categ</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_categ_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="company_id" groups="base.group_multi_company"
+                       options="{'no_create': True, 'no_open': True}"/>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- Complaint Category Tree View -->
+    <!-- <record id="view_complaint_categ_tree_multicompany" model="ir.ui.view">
+        <field name="name">complaint.categ.tree.multicompany</field>
+        <field name="model">complaint.categ</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_categ_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- ========================================== -->
+    <!-- COMPLAINT VIA VIEWS -->
+    <!-- ========================================== -->
+
+    <!-- Complaint Via Form View -->
+    <!-- <record id="view_complaint_via_form_multicompany" model="ir.ui.view">
+        <field name="name">complaint.via.form.multicompany</field>
+        <field name="model">complaint.via</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_via_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="company_id" groups="base.group_multi_company"
+                       options="{'no_create': True, 'no_open': True}"/>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- Complaint Via Tree View -->
+    <!-- <record id="view_complaint_via_tree_multicompany" model="ir.ui.view">
+        <field name="name">complaint.via.tree.multicompany</field>
+        <field name="model">complaint.via</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_via_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- ========================================== -->
+    <!-- COMPLAINT REASON VIEWS -->
+    <!-- ========================================== -->
+
+    <!-- Complaint Reason Form View -->
+    <!-- <record id="view_complaint_reason_form_multicompany" model="ir.ui.view">
+        <field name="name">complaint.complaint.reason.form.multicompany</field>
+        <field name="model">complaint.complaint.reason</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_complaint_reason_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="company_id" groups="base.group_multi_company"
+                       options="{'no_create': True, 'no_open': True}"/>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- Complaint Reason Tree View -->
+    <!-- <record id="view_complaint_reason_tree_multicompany" model="ir.ui.view">
+        <field name="name">complaint.complaint.reason.tree.multicompany</field>
+        <field name="model">complaint.complaint.reason</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_complaint_reason_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- ========================================== -->
+    <!-- COMPLAINT QUICK ACTION VIEWS -->
+    <!-- ========================================== -->
+
+    <!-- Complaint Quick Action Form View -->
+    <!-- <record id="view_complaint_quick_action_form_multicompany" model="ir.ui.view">
+        <field name="name">complaint.quick.action.form.multicompany</field>
+        <field name="model">complaint.quick.action</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_quick_action_form"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="before">
+                <field name="company_id" groups="base.group_multi_company"
+                       options="{'no_create': True, 'no_open': True}"/>
+            </field>
+            <field name="categ_id" position="attributes">
+                <attribute name="domain">[('company_id', '=', company_id)]</attribute>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- Complaint Quick Action Tree View -->
+    <!-- <record id="view_complaint_quick_action_tree_multicompany" model="ir.ui.view">
+        <field name="name">complaint.quick.action.tree.multicompany</field>
+        <field name="model">complaint.quick.action</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_quick_action_tree"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- ========================================== -->
+    <!-- COMPLAINT ANALYSIS VIEWS -->
+    <!-- ========================================== -->
+
+    <!-- Complaint Analysis Form View -->
+    <!-- <record id="view_complaint_analisis_form_multicompany" model="ir.ui.view">
+        <field name="name">complaint.analisis.form.multicompany</field>
+        <field name="model">complaint.analisis</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_analisis_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="company_id" groups="base.group_multi_company"
+                       options="{'no_create': True, 'no_open': True}"/>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- Complaint Analysis Tree View -->
+    <!-- <record id="view_complaint_analisis_tree_multicompany" model="ir.ui.view">
+        <field name="name">complaint.analisis.tree.multicompany</field>
+        <field name="model">complaint.analisis</field>
+        <field name="inherit_id" ref="mgmtsystem_complaints.view_complaint_analisis_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="company_id" groups="base.group_multi_company"/>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- ========================================== -->
+    <!-- MENU ACTIONS - Filtrar por Compañía -->
+    <!-- ========================================== -->
+
+    <!-- Action para Complaints filtrado por compañía actual -->
+    <record id="action_complaint_complaint_company" model="ir.actions.act_window">
+        <field name="name">Company Complaints</field>
+        <field name="res_model">complaint.complaint</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('company_id', '=', active_company)]</field>
+        <field name="context">{
+            'default_company_id': active_company,
+            'search_default_group_company': 1
+        }</field>
+        <field name="help">Complaints for current company</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Multi-company rule for complaints -->
+    <record id="complaint_complaint_comp_rule" model="ir.rule">
+        <field name="name">Complaint multi-company</field>
+        <field name="model_id" ref="mgmtsystem_complaints.model_complaint_complaint"/>
+        <field name="domain_force">['|',('company_id','in',company_ids),('company_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Multi-company rule for complaint categories -->
+    <record id="complaint_categ_comp_rule" model="ir.rule">
+        <field name="name">Complaint Category multi-company</field>
+        <field name="model_id" ref="mgmtsystem_complaints.model_complaint_categ"/>
+        <field name="domain_force">['|',('company_id','in',company_ids),('company_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Multi-company rule for complaint vias -->
+    <record id="complaint_via_comp_rule" model="ir.rule">
+        <field name="name">Complaint Via multi-company</field>
+        <field name="model_id" ref="mgmtsystem_complaints.model_complaint_via"/>
+        <field name="domain_force">['|',('company_id','in',company_ids),('company_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Multi-company rule for complaint reasons -->
+    <record id="complaint_reason_comp_rule" model="ir.rule">
+        <field name="name">Complaint Reason multi-company</field>
+        <field name="model_id" ref="mgmtsystem_complaints.model_complaint_complaint_reason"/>
+        <field name="domain_force">['|',('company_id','in',company_ids),('company_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Multi-company rule for complaint quick actions -->
+    <record id="complaint_quick_action_comp_rule" model="ir.rule">
+        <field name="name">Complaint Quick Action multi-company</field>
+        <field name="model_id" ref="mgmtsystem_complaints.model_complaint_quick_action"/>
+        <field name="domain_force">['|',('company_id','in',company_ids),('company_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Multi-company rule for complaint analysis -->
+    <record id="complaint_analisis_comp_rule" model="ir.rule">
+        <field name="name">Complaint Analysis multi-company</field>
+        <field name="model_id" ref="mgmtsystem_complaints.model_complaint_analisis"/>
+        <field name="domain_force">['|',('company_id','in',company_ids),('company_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Reglas públicas específicas para el formulario de quejas -->
+    <record id="complaint_categ_public_rule" model="ir.rule">
+        <field name="name">Complaint Category Public Access</field>
+        <field name="model_id" ref="mgmtsystem_complaints.model_complaint_categ"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_public'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="complaint_reason_public_rule" model="ir.rule">
+        <field name="name">Complaint Reason Public Access</field>
+        <field name="model_id" ref="mgmtsystem_complaints.model_complaint_complaint_reason"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_public'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="complaint_via_public_rule" model="ir.rule">
+        <field name="name">Complaint Via Public Access</field>
+        <field name="model_id" ref="mgmtsystem_complaints.model_complaint_via"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_public'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="complaint_complaint_public_rule" model="ir.rule">
+        <field name="name">Complaint Public Create</field>
+        <field name="model_id" ref="mgmtsystem_complaints.model_complaint_complaint"/>
+        <field name="domain_force">[('create_uid','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_public'))]"/>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!-- Regla para acceso a res.company para usuarios públicos -->
+    <record id="company_public_rule" model="ir.rule">
+        <field name="name">Company Public Access</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="domain_force">[('complaint_form_active','=',True)]</field>
+        <field name="groups" eval="[(4, ref('base.group_public'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+</odoo>

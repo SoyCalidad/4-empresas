@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Company-specific complaint form -->
+    <template id="complaint_form" name="Company Complaint Form">
+        <t t-call="website.layout">
+            <div class="center">
+                <form t-attf-action="/reclamo/#{company.complaint_slug}/enviado" method="post" id="msform" enctype="multipart/form-data">
+                    <!-- Company branding -->
+                    <div class="company-header">
+                        <!-- <h1 class="company-title" t-esc="company.complaint_form_title or 'Formulario de Reclamos'"/> -->
+                        <h1 class="company-name">
+                            <t t-esc="company.name"/>
+                        </h1>
+                        <p class="company-subtitle" t-esc="company.complaint_form_subtitle or 'Complete el formulario para registrar su reclamo'"/>
+                    </div>
+
+                    <!-- Progress bar -->
+                    <ul id="progressbar">
+                        <li class="active">Información del reclamo</li>
+                        <li>Información adicional</li>
+                        <li>Información personal</li>
+                    </ul>
+
+                    <!-- Error message -->
+                    <div t-if="error_message" class="alert alert-danger" role="alert">
+                        <t t-esc="error_message"/>
+                    </div>
+
+                    <!-- Fieldset 1: Complaint Information -->
+                    <fieldset>
+                        <h2 class="fs-title">Información del reclamo</h2>
+                        <h3 class="fs-subtitle">Introduzca los datos relativos al reclamo</h3>
+                        
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                        
+                        <select id="categ_id" name="categ_id" required="">
+                            <option disabled="" selected="selected" value="">Categoría</option>
+                            <t t-foreach="categ_id" t-as="category">
+                                <option t-att-value="category.id" t-esc="category.name" 
+                                        t-att-selected="'selected' if str(category.id) == categ_id else None"/>
+                            </t>
+                        </select>
+                        
+                        <select id="type" name="type" required="">
+                            <option disabled="" selected="selected" value="">Tipo</option>
+                            <option value="Interna" t-att-selected="'selected' if type == 'Interna' else None">Interna</option>
+                            <option value="Externa" t-att-selected="'selected' if type == 'Externa' else None">Externa</option>
+                        </select>
+                        
+                        <input placeholder="Fecha y hora del incidente" 
+                               class="textbox-n" 
+                               type="text" 
+                               onfocus="(this.type='datetime-local')" 
+                               name="date_incident" 
+                               t-att-value="date_incident or ''"/>
+                        
+                        <textarea name="perspective" 
+                                  placeholder="Descripción" 
+                                  rows="4" 
+                                  t-raw="perspective or ''"></textarea>
+                        
+                        <input type="file" 
+                               widget="many2many_binary" 
+                               multiple="true" 
+                               class="o_website_form_input" 
+                               name="complaint_files" 
+                               style="height:100px"/>
+                        
+                        <input type="button" name="next" class="next action-button" value="Siguiente" />
+                    </fieldset>
+
+                    <!-- Fieldset 2: Additional Information -->
+                    <fieldset>
+                        <h2 class="fs-title">Información adicional</h2>
+                        <div class="form-inputs">
+                            <div>
+                                <h4>1. Identifica el motivo del reclamo. Puedes seleccionar máximo 2 opciones.</h4>
+                                <t t-foreach="reason_ids" t-as="reason">
+                                    <label class="checkbox_container">
+                                        <strong>
+                                            <span t-esc="reason.name" />:
+                                        </strong>
+                                        <span t-esc="reason.description" />
+                                        <input class="reason_checkbox" 
+                                               t-attf-name="reason_#{reason.id}" 
+                                               t-attf-id="reason_#{reason.id}" 
+                                               type="checkbox" 
+                                               t-att-value="reason.id" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </t>
+                                <input type="text" 
+                                       name="reason_other" 
+                                       placeholder="Otro motivo" 
+                                       t-att-value="reason_other or ''"/>
+                            </div>
+                            <div>
+                                <h4>2. ¿Trataron de darte una solución previa al registro del reclamo?</h4>
+                                <select id="solution" name="solution">
+                                    <option value="1" t-att-selected="'selected' if solution == '1' else None">Sí</option>
+                                    <option value="0" t-att-selected="'selected' if solution == '0' else None">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                        <input type="button" name="next" class="next action-button" value="Siguiente" />
+                    </fieldset>
+
+                    <!-- Fieldset 3: Personal Information -->
+                    <fieldset>
+                        <h2 class="fs-title">Información personal</h2>
+                        <h3 class="fs-subtitle">Introduzca sus datos personales</h3>
+                        
+                        <input type="text" 
+                               name="name" 
+                               placeholder="Nombres y apellidos" 
+                               t-att-value="name or ''" 
+                               required=""/>
+                        
+                        <input type="text" 
+                               name="complainer_document_number" 
+                               placeholder="Número de documento" 
+                               t-att-value="complainer_document_number or ''"/>
+                        
+                        <select id="complainer_delivery_type" 
+                                name="complainer_delivery_type" 
+                                onchange="showDiv('hidden_email', 'hidden_phone', this)">
+                            <option selected="selected">Seleccione como quiere recibir la respuesta a tu reclamo</option>
+                            <option value="Quiero recibirla por correo electronico" t-att-selected="'selected' if complainer_delivery_type == 'email' else None">Quiero recibirla por correo electronico</option>
+                            <option value="Quiero recibirla por celular" t-att-selected="'selected' if complainer_delivery_type == 'phone' else None">Quiero recibirla por celular</option>
+                        </select>
+                        
+                        <input type="text" 
+                               id="hidden_phone" 
+                               name="complainer_phone" 
+                               placeholder="Teléfono" 
+                               t-att-value="complainer_phone or ''"
+                               t-att-style="'display: block;' if complainer_delivery_type == 'phone' else 'display: none;'"/>
+                        
+                        <input type="email" 
+                               id="hidden_email" 
+                               name="complainer_email" 
+                               placeholder="Correo electrónico" 
+                               t-att-value="complainer_email or ''"
+                               t-att-style="'display: block;' if complainer_delivery_type == 'email' else 'display: none;'"/>
+                        
+                        <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+                        <input type="submit" class="submit action-button o_website_form_send" value="Enviar reclamo" />
+                    </fieldset>
+                </form>
+            </div>
+        </t>
+
+        <!-- JavaScript for form functionality -->
+        <script>
+            function showDiv(divId1, divId2, element) {
+                console.log(element.value);
+                document.getElementById(divId1).style.display = element.value == 'Quiero recibirla por correo electronico' ? 'block' : 'none';
+                document.getElementById(divId2).style.display = element.value == 'Quiero recibirla por celular' ? 'block' : 'none';
+            }
+
+            // Checkbox limitation script
+            var checks = document.querySelectorAll(".reason_checkbox");
+            var max = 2;
+            for (var i = 0; i &lt; checks.length; i++)
+                checks[i].onclick = selectiveCheck;
+            
+            function selectiveCheck(event) {
+                var checkedChecks = document.querySelectorAll(".reason_checkbox:checked");
+                if (checkedChecks.length >= max + 1)
+                    return false;
+            }
+        </script>
+    </template>
+
+    <!-- Success page -->
+    <template id="complaint_success" name="Complaint Success">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 text-center">
+                        <div class="company-header mb-4">
+                            <small class="text-muted d-block">
+                                <t t-esc="company.name"/>
+                            </small>
+                        </div>
+                        
+                        <div class="success-content">
+                            <t t-raw="success_message"/>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <p class="text-muted">
+                                Número de reclamo: <strong t-esc="complaint.name"/>
+                            </p>
+                            <p class="text-muted">
+                                Fecha de registro: <strong t-esc="complaint.date_incident"/>
+                            </p>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a t-attf-href="/reclamo/#{company.complaint_slug}" class="btn btn-primary">
+                                Registrar otro reclamo
+                            </a>
+                            <a href="/" class="btn btn-secondary ml-2">
+                                Ir al inicio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Company list page -->
+    <template id="company_list" name="Company Complaint List">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <h1 class="text-center mb-5">Formularios de Reclamos</h1>
+                        
+                        <div class="row">
+                            <t t-foreach="companies" t-as="company">
+                                <div class="col-md-6 col-lg-4 mb-4">
+                                    <div class="card h-100">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title" t-esc="company.name"/>
+                                            <p class="card-text text-muted" t-esc="company.complaint_form_subtitle"/>
+                                            <a t-attf-href="/reclamo/#{company.complaint_slug}" 
+                                               class="btn btn-primary">
+                                                Registrar Reclamo
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                        
+                        <div t-if="not companies" class="text-center">
+                            <h3>No hay formularios de reclamos disponibles</h3>
+                            <p class="text-muted">Contacte al administrador del sistema.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>
