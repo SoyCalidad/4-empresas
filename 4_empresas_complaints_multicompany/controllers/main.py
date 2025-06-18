@@ -5,6 +5,7 @@ import werkzeug
 import base64
 from odoo import http, _
 from odoo.exceptions import UserError
+from odoo import SUPERUSER_ID
 from odoo.http import request
 from odoo.addons.website.controllers.main import Website
 
@@ -32,34 +33,37 @@ class ComplaintMultiCompany(http.Controller):
             _logger.error("Error getting company from slug '%s': %s", company_slug, str(e))
             return None
 
+
     def _get_complaint_data(self, company):
-        """Get complaint form data for specific company"""
-        try:
-            domain = [('company_id', '=', company.id)]
-            
-            # Usar el contexto de la empresa específica
-            env_with_company = request.env.sudo().with_context(
-                allowed_company_ids=[company.id],
-                force_company=company.id,
-                active_test=False
-            )
-            
-            return {
-                'company': company,
-                'reason_ids': env_with_company['complaint.complaint.reason'].search(domain),
-                'categ_id': env_with_company['complaint.categ'].search(domain),
-                'via_ids': env_with_company['complaint.via'].search(domain),
-            }
-        except Exception as e:
-            _logger.error("Error getting complaint data for company %s: %s", company.id, str(e))
-            return {
-                'company': company,
-                'reason_ids': request.env['complaint.complaint.reason'].sudo().browse([]),
-                'categ_id': request.env['complaint.categ'].sudo().browse([]),
-                'via_ids': request.env['complaint.via'].sudo().browse([]),
-            }
-        
-    @http.route('/reclamo/<string:company_slug>', type='http', auth='public', website=True, sitemap=False)
+        dom = ['|',
+            ('company_id', '=', company.id),
+            ('company_id', '=', False),
+        ]
+
+        # Recordset sudo y contexto multi-empresa
+        env_ctx = request.env['complaint.categ'].sudo(SUPERUSER_ID).with_context(
+            force_company       = company.id,
+            allowed_company_ids = [company.id],
+            active_test         = False,
+        ).env                                     # ← recuperamos el Environment
+
+        categs  = [(c.id,  c.name) for c in env_ctx['complaint.categ'].search(dom)]
+        reasons = [
+            (r.id, r.name, (r.description or ''))      # ← 3-element tuple
+            for r in env_ctx['complaint.complaint.reason'].search(dom)
+        ]
+        vias    = [(v.id, v.name)  for v in env_ctx['complaint.via'].search(dom)]
+
+        return {
+            'company'   : company,
+            'categs'    : categs,
+            'categ_id'  : request.params.get('categ_id'),
+            'reason_ids': reasons,
+            'via_ids'   : vias,
+        }
+
+
+    @http.route('/incidente/<string:company_slug>', type='http', auth='public', website=True, sitemap=False)
     def company_complaint_form(self, company_slug, **kw):
         """Company-specific complaint form"""
         try:
@@ -70,13 +74,15 @@ class ComplaintMultiCompany(http.Controller):
             values = request.params.copy()
             values.update(self._get_complaint_data(company))
             
+            _logger.info("DEBUG reasons = %s", values['reason_ids'][:5])  # ← añade esto
+
             return request.render('4_empresas_complaints_multicompany.complaint_form', values)
 
         except Exception as e:
             _logger.error("Error rendering complaint form for slug '%s': %s", company_slug, str(e))
             return request.render('website.404')
 
-    @http.route('/reclamo/<string:company_slug>/enviado', type='http', methods=['POST'], auth='public', website=True)
+    @http.route('/incidente/<string:company_slug>/enviado', type='http', methods=['POST'], auth='public', website=True)
     def company_complaint_submit(self, company_slug, **kw):
         """Submit complaint for specific company"""
         company = self._get_company_from_slug(company_slug)
@@ -106,6 +112,9 @@ class ComplaintMultiCompany(http.Controller):
 
         except Exception as e:
             _logger.error("Error creating complaint: %s", str(e))
+
+            request.env.cr.rollback()          # ← limpia la transacción
+
             values = {
                 'company': company,
                 'error_message': _('An error occurred while processing your complaint. Please try again.'),
@@ -150,7 +159,8 @@ class ComplaintMultiCompany(http.Controller):
             # Verify category belongs to company
             category = request.env['complaint.categ'].sudo().search([
                 ('id', '=', categ_id),
-                ('company_id', '=', company.id)
+                ('company_id', 'in', [company.id, False]) # Cuando usemos Categorías globales
+                #('company_id', '=', company.id) # Cuando tengamos Categorías por compañia
             ])
             if category:
                 processed_data['categ_id'] = categ_id
@@ -177,13 +187,13 @@ class ComplaintMultiCompany(http.Controller):
 
         return processed_data
 
-    @http.route('/reclamo', type='http', auth='public', website=True, sitemap=False)
+    @http.route('/incidente', type='http', auth='public', website=True, sitemap=False)
     def complaint_redirect(self, **kw):
         """Redirect old complaint URL to default company or company selection"""
         # Try to get user's company or default company
         company = request.env.company
         if company and company.complaint_slug and company.complaint_form_active:
-            return werkzeug.utils.redirect(f'/reclamo/{company.complaint_slug}')
+            return werkzeug.utils.redirect(f'/incidente/{company.complaint_slug}')
         
         # Find any active company with complaint form
         active_company = request.env['res.company'].sudo().search([
@@ -192,12 +202,12 @@ class ComplaintMultiCompany(http.Controller):
         ], limit=1)
         
         if active_company:
-            return werkzeug.utils.redirect(f'/reclamo/{active_company.complaint_slug}')
+            return werkzeug.utils.redirect(f'/incidente/{active_company.complaint_slug}')
         
         # No active companies found
         return request.render('website.404')
 
-    @http.route('/reclamos', type='http', auth='public', website=True, sitemap=True)
+    @http.route('/incidentes', type='http', auth='public', website=True, sitemap=True)
     def company_complaint_list(self, **kw):
         """List available complaint forms by company"""
         companies = request.env['res.company'].sudo().search([

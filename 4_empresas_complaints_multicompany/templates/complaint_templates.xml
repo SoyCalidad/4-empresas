@@ -5,7 +5,7 @@
     <template id="complaint_form" name="Company Complaint Form">
         <t t-call="website.layout">
             <div class="center">
-                <form t-attf-action="/reclamo/#{company.complaint_slug}/enviado" method="post" id="msform" enctype="multipart/form-data">
+                <form t-attf-action="/incidente/#{company.complaint_slug}/enviado" method="post" id="msform" enctype="multipart/form-data">
                     <!-- Company branding -->
                     <div class="company-header">
                         <!-- <h1 class="company-title" t-esc="company.complaint_form_title or 'Formulario de Reclamos'"/> -->
@@ -34,14 +34,27 @@
                         
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                         
-                        <select id="categ_id" name="categ_id" required="">
+                        <!-- <select id="categ_id" name="categ_id" required="">
                             <option disabled="" selected="selected" value="">Categoría</option>
                             <t t-foreach="categ_id" t-as="category">
                                 <option t-att-value="category.id" t-esc="category.name" 
                                         t-att-selected="'selected' if str(category.id) == categ_id else None"/>
                             </t>
+                        </select> -->
+                        <!-- DEBUG CATEGORÍAS: -->
+                        <p style="color:red">
+                            TOTAL: <t t-esc="len(categs) or 0"/>
+                        </p>
+                        <select id="categ_id" name="categ_id" required="">
+                            <option disabled="" selected="selected" value="">Categoría</option>
+                            <t t-foreach="categs" t-as="c">
+                                <!-- c[0] = id, c[1] = nombre -->
+                                <option t-att-value="c[0]"
+                                        t-att-selected="'selected' if str(c[0])==(categ_id or '') else None">
+                                    <t t-esc="c[1]"/>
+                                </option>
+                            </t>
                         </select>
-                        
                         <select id="type" name="type" required="">
                             <option disabled="" selected="selected" value="">Tipo</option>
                             <option value="Interna" t-att-selected="'selected' if type == 'Interna' else None">Interna</option>
@@ -76,17 +89,16 @@
                         <div class="form-inputs">
                             <div>
                                 <h4>1. Identifica el motivo del reclamo. Puedes seleccionar máximo 2 opciones.</h4>
-                                <t t-foreach="reason_ids" t-as="reason">
+                                <t t-foreach="reason_ids" t-as="r">
+                                    <!-- r = (id, name, description) -->
                                     <label class="checkbox_container">
-                                        <strong>
-                                            <span t-esc="reason.name" />:
-                                        </strong>
-                                        <span t-esc="reason.description" />
-                                        <input class="reason_checkbox" 
-                                               t-attf-name="reason_#{reason.id}" 
-                                               t-attf-id="reason_#{reason.id}" 
-                                               type="checkbox" 
-                                               t-att-value="reason.id" />
+                                        <strong><span t-esc="r[1]"/>:</strong>
+                                        <span t-esc="r[2]"/>
+                                        <input class="reason_checkbox"
+                                            t-attf-name="reason_#{r[0]}"
+                                            t-attf-id="reason_#{r[0]}"
+                                            type="checkbox"
+                                            t-att-value="r[0]"/>
                                         <span class="checkmark"></span>
                                     </label>
                                 </t>
@@ -200,7 +212,7 @@
                         </div>
                         
                         <div class="mt-4">
-                            <a t-attf-href="/reclamo/#{company.complaint_slug}" class="btn btn-primary">
+                            <a t-attf-href="/incidente/#{company.complaint_slug}" class="btn btn-primary">
                                 Registrar otro reclamo
                             </a>
                             <a href="/" class="btn btn-secondary ml-2">
@@ -219,7 +231,7 @@
             <div class="container mt-5">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
-                        <h1 class="text-center mb-5">Formularios de Reclamos</h1>
+                        <h1 class="text-center mb-5">Formularios de Incidentes por Compañias</h1>
                         
                         <div class="row">
                             <t t-foreach="companies" t-as="company">
@@ -228,7 +240,7 @@
                                         <div class="card-body text-center">
                                             <h5 class="card-title" t-esc="company.name"/>
                                             <p class="card-text text-muted" t-esc="company.complaint_form_subtitle"/>
-                                            <a t-attf-href="/reclamo/#{company.complaint_slug}" 
+                                            <a t-attf-href="/incidente/#{company.complaint_slug}" 
                                                class="btn btn-primary">
                                                 Registrar Reclamo
                                             </a>

@@ -10,7 +10,7 @@ class ComplaintComplaint(models.Model):
     company_id = fields.Many2one(
         'res.company',
         string='Company',
-        required=True,
+        required=False,
         default=lambda self: self.env.company,
         help="Company that owns this complaint"
     )
@@ -38,8 +38,8 @@ class ComplaintCateg(models.Model):
     company_id = fields.Many2one(
         'res.company',
         string='Company',
-        required=True,
-        default=lambda self: self.env.company,
+        required=False,
+        #default=lambda self: self.env.company,
         help="Company that owns this category"
     )
 
@@ -50,8 +50,8 @@ class ComplaintVia(models.Model):
     company_id = fields.Many2one(
         'res.company',
         string='Company',
-        required=True,
-        default=lambda self: self.env.company,
+        required=False,
+        #default=lambda self: self.env.company,
         help="Company that owns this via"
     )
 
@@ -62,8 +62,8 @@ class ComplaintQuickAction(models.Model):
     company_id = fields.Many2one(
         'res.company',
         string='Company',
-        required=True,
-        default=lambda self: self.env.company,
+        required=False,
+        #default=lambda self: self.env.company,
         help="Company that owns this quick action"
     )
 
@@ -80,8 +80,8 @@ class ComplaintComplaintReason(models.Model):
     company_id = fields.Many2one(
         'res.company',
         string='Company',
-        required=True,
-        default=lambda self: self.env.company,
+        required=False,
+        #default=lambda self: self.env.company,
         help="Company that owns this reason"
     )
 
@@ -92,7 +92,7 @@ class ComplaintAnalisis(models.Model):
     company_id = fields.Many2one(
         'res.company',
         string='Company',
-        required=True,
-        default=lambda self: self.env.company,
+        required=False,
+        #default=lambda self: self.env.company,
         help="Company that owns this analysis"
     )

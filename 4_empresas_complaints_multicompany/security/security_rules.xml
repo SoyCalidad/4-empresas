@@ -52,7 +52,9 @@
     <record id="complaint_categ_public_rule" model="ir.rule">
         <field name="name">Complaint Category Public Access</field>
         <field name="model_id" ref="mgmtsystem_complaints.model_complaint_categ"/>
-        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="domain_force">
+            ['|', ('company_id','=',False), ('company_id','in', allowed_company_ids)]
+        </field>
         <field name="groups" eval="[(4, ref('base.group_public'))]"/>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>
@@ -63,7 +65,9 @@
     <record id="complaint_reason_public_rule" model="ir.rule">
         <field name="name">Complaint Reason Public Access</field>
         <field name="model_id" ref="mgmtsystem_complaints.model_complaint_complaint_reason"/>
-        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="domain_force">
+            ['|', ('company_id','=',False), ('company_id','in', allowed_company_ids)]
+        </field>
         <field name="groups" eval="[(4, ref('base.group_public'))]"/>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>
@@ -74,7 +78,9 @@
     <record id="complaint_via_public_rule" model="ir.rule">
         <field name="name">Complaint Via Public Access</field>
         <field name="model_id" ref="mgmtsystem_complaints.model_complaint_via"/>
-        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="domain_force">
+            ['|', ('company_id','=',False), ('company_id','in', allowed_company_ids)]
+        </field>
         <field name="groups" eval="[(4, ref('base.group_public'))]"/>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>

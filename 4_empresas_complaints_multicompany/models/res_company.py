@@ -10,7 +10,7 @@ class ResCompany(models.Model):
 
     complaint_slug = fields.Char(
         string='Complaint URL Slug',
-        help="URL slug for company-specific complaint form (e.g., 'company-a' for /reclamo/company-a)",
+        help="URL slug for company-specific complaint form (e.g., 'company-a' for /incidente/company-a)",
         required=False
     )
     
