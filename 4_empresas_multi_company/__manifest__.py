@@ -28,6 +28,7 @@
         'mgmtsystem_target',
         'stock_inspection',
         'dms',
+        'soycalidad_improve',
     ],
     'data': [
         'security/multi_company.xml',
@@ -55,6 +56,7 @@
         'views/survey_views.xml',
         'views/target_views.xml',
         'views/res_partner_views.xml',
+        'views/improve_views.xml',
     ],
     'demo': [
     ],

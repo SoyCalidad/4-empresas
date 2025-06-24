@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Extender vista form de change_request -->
+    <record id="soycalidad_change_request_view_form_inherit" model="ir.ui.view">
+        <field name="name">soycalidad.change_request.view.form.inherit</field>
+        <field name="model">soycalidad.change_request</field>
+        <field name="inherit_id" ref="soycalidad_improve.soycalidad_change_request_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extender vista tree de change_request -->
+    <record id="soycalidad_change_request_view_tree_inherit" model="ir.ui.view">
+        <field name="name">soycalidad.change_request.view.tree.inherit</field>
+        <field name="model">soycalidad.change_request</field>
+        <field name="inherit_id" ref="soycalidad_improve.soycalidad_change_request_view_tree"/>
+        <field name="arch" type="xml">
+            <!-- Añadir company_id después del campo responsible_id -->
+            <xpath expr="//field[@name='responsible_id']" position="after">
+                <field name="company_id" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extender vista form de improve_plan_matrix -->
+    <record id="soycalidad_improve_plan_matrix_view_form_inherit" model="ir.ui.view">
+        <field name="name">soycalidad.improve_plan.matrix.view.form.inherit</field>
+        <field name="model">soycalidad.improve_plan.matrix</field>
+        <field name="inherit_id" ref="soycalidad_improve.improve_plan_matrix_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Multi-Compañía" name="multi_company" groups="base.group_multi_company">
+                    <group>
+                        <field name="company_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extender vista tree de improve_plan_matrix -->
+    <record id="soycalidad_improve_plan_matrix_view_tree_inherit" model="ir.ui.view">
+        <field name="name">soycalidad.improve_plan.matrix.view.tree.inherit</field>
+        <field name="model">soycalidad.improve_plan.matrix</field>
+        <field name="inherit_id" ref="soycalidad_improve.improve_plan_matrix_view_tree"/>
+        <field name="arch" type="xml">
+            <!-- Añadir company_id como primera columna -->
+            <xpath expr="//field[@name='version']" position="after">
+                <field name="company_id" />
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

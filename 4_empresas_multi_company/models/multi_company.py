@@ -1022,6 +1022,16 @@ class soycalidadimprove_planmatrix(models.Model):
     company_id = fields.Many2one('res.company', string='Compañia', default=lambda self: self.env.company)
 
 
+class ChangeRequest(models.Model):
+    _inherit = 'soycalidad.change_request'
+    
+    company_id = fields.Many2one(
+        'res.company',
+        string='Compañía',
+        default=lambda self: self.env.company,
+    )
+
+
 class stockinspectionitem(models.Model):
     _inherit = 'stock.inspection.item'
 
