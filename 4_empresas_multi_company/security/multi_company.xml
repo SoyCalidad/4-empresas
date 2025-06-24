@@ -1052,6 +1052,13 @@
             <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
 
+        <record id="model_soycalidad_change_request_company_rule" model="ir.rule">
+            <field name="name">model_soycalidad_change_request_company_rule</field>
+            <field name="model_id" ref="soycalidad_improve.model_soycalidad_change_request" />
+            <field name="global" eval="True" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
         <record id="model_stock_inspection_item_rule" model="ir.rule">
             <field name="name">model_stock_inspection_item</field>
             <field name="model_id" ref="stock_inspection.model_stock_inspection_item" />
