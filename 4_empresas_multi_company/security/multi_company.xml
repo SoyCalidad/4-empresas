@@ -534,13 +534,6 @@
             <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
 
-        <record id="model_legal_type_rule" model="ir.rule">
-            <field name="name">model_legal_type</field>
-            <field name="model_id" ref="mgmtsystem_legal.model_legal_type" />
-            <field name="global" eval="True" />
-            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
-        </record>
-
         <record id="model_legal_legal_rule" model="ir.rule">
             <field name="name">model_legal_legal</field>
             <field name="model_id" ref="mgmtsystem_legal.model_legal_legal" />
