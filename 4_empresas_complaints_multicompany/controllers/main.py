@@ -50,7 +50,7 @@ class ComplaintMultiCompany(http.Controller):
         categs  = [(c.id,  c.name) for c in env_ctx['complaint.categ'].search(dom)]
         reasons = [
             (r.id, r.name, (r.description or ''))      # ← 3-element tuple
-            for r in env_ctx['complaint.complaint.reason'].search(dom)
+            for r in env_ctx['incident.incident.reason'].search([])
         ]
         vias    = [(v.id, v.name)  for v in env_ctx['complaint.via'].search(dom)]
 
@@ -90,25 +90,52 @@ class ComplaintMultiCompany(http.Controller):
             return request.render('website.404')
 
         try:
-            complaint_data = self._process_complaint_data(kw, company)
-            complaint = request.env['complaint.complaint'].sudo().create(complaint_data)
+            real_values = self._process_complaint_data(kw, company)
+            incidentModel = request.env['incident.incident']
             
-            # Process reason_ids
             reason_arr = []
-            for key, value in kw.items():
-                if key.startswith('reason_') and key != 'reason_other' and value:
-                    reason_arr.append(int(value))
-            
-            if reason_arr:
-                complaint.reason_ids = [(6, 0, reason_arr)]
 
+            for val in kw.keys():
+                if val=='complainer_delivery_type' or val=='incident_files':
+                    continue
+                if kw[val]:
+                    if val == 'date_incident':
+                        real_values[val] = kw[val].replace('T', ' ')
+                    elif val == 'reason_other':
+                        real_values[val] = kw[val]
+                    elif 'reason_' in val:
+                        reason_arr.append(kw[val])
+                    elif val == 'type':
+                        if kw[val] == 'Interna':
+                            real_values[val] = 'internal'
+                        elif kw[val] == 'Externa':
+                            real_values[val] = 'ext'
+                        if kw.get('type') and kw['type'] == 'Externa':
+                            partner_id = request.env['res.partner'].sudo().search(
+                                [('name', '=', kw[val])])
+                            if partner_id:
+                                real_values['partner_id'] = partner_id.id
+                        elif kw.get('type') and kw['type'] == 'Interna':
+                            employee_id = request.env['hr.employee'].sudo().search(
+                                [('name', '=', kw[val])])
+                            if employee_id:
+                                real_values['employee_notify_id'] = employee_id.id
+
+                    else:
+                        real_values[val] = kw[val]
+                    
+            real_values['complainer_name'] = kw['name']
+            res_id = incidentModel.sudo().create(real_values)
+            res_id.reason_ids = [(6, 0, reason_arr)]
+            
             values = {
                 'company': company,
-                'complaint': complaint,
+                'complaint': res_id,
                 'success_message': company.complaint_success_message,
             }
             
-            return request.render('4_empresas_complaints_multicompany.complaint_success', values)
+            #return request.render('4_empresas_complaints_multicompany.complaint_success', values)
+            return request.render('soy_cybersecurity_cybersecurity.incident_done', {})
 
         except Exception as e:
             _logger.error("Error creating complaint: %s", str(e))
@@ -130,17 +157,17 @@ class ComplaintMultiCompany(http.Controller):
         }
 
         # Handle file upload
-        if form_data.get('complaint_files'):
-            file = form_data.get('complaint_files').read()
-            processed_data['complaint_files'] = base64.b64encode(file)
+        if form_data.get('incident_files'):
+            file = form_data.get('incident_files').read()
+            processed_data['incident_files'] = base64.b64encode(file)
 
         # Process form fields
         field_mapping = {
             'perspective': 'perspective',
             'date_incident': lambda x: x.replace('T', ' ') if x else None,
             'reason_other': 'reason_other',
-            'solution': lambda x: bool(int(x)) if x else False,
-            'name': 'complainer_name',
+            #'solution': lambda x: bool(int(x)) if x else False,
+            #'name': 'complainer_name',
             'complainer_document_number': 'complainer_document_number',
             'complainer_phone': 'complainer_phone',
             'complainer_email': 'complainer_email',
@@ -153,25 +180,6 @@ class ComplaintMultiCompany(http.Controller):
                 else:
                     processed_data[db_field] = form_data[form_field]
 
-        # Handle category
-        if form_data.get('categ_id'):
-            categ_id = int(form_data['categ_id'])
-            # Verify category belongs to company
-            category = request.env['complaint.categ'].sudo().search([
-                ('id', '=', categ_id),
-                ('company_id', 'in', [company.id, False]) # Cuando usemos Categorías globales
-                #('company_id', '=', company.id) # Cuando tengamos Categorías por compañia
-            ])
-            if category:
-                processed_data['categ_id'] = categ_id
-
-        # Handle type
-        if form_data.get('type'):
-            type_mapping = {
-                'Interna': 'customer',
-                'Externa': 'supplier'
-            }
-            processed_data['type'] = type_mapping.get(form_data['type'])
 
         # Handle delivery type
         if form_data.get('complainer_delivery_type'):
@@ -182,8 +190,8 @@ class ComplaintMultiCompany(http.Controller):
             processed_data['complainer_delivery_type'] = delivery_mapping.get(form_data['complainer_delivery_type'])
 
         # Generate complaint name
-        complaint_name = f"{form_data.get('name', 'Anónimo')} - {form_data.get('date_incident', '').replace('T', ' ')}"
-        processed_data['name'] = complaint_name
+        complaint_name = f"{form_data.get('name', 'Anónimo')}  {form_data.get('date_incident', '').replace('T', ' ')}"
+        processed_data['name'] = complaint_name or '-'
 
         return processed_data
 

@@ -28,13 +28,13 @@ class ResCompany(models.Model):
 
     complaint_form_subtitle = fields.Text(
         string='Complaint Form Subtitle',
-        default='Complete el formulario para registrar su reclamo',
+        default='Complete el formulario para registrar el incidente',
         help="Subtitle displayed on the complaint form"
     )
 
     complaint_success_message = fields.Html(
         string='Success Message',
-        default='<h1>¡Gracias! Su reclamo ha sido enviado correctamente</h1>',
+        default='<h1>¡Gracias! El incidente ha sido enviado correctamente</h1>',
         help="Message displayed after successful complaint submission"
     )
 
