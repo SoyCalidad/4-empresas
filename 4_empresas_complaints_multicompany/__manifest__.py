@@ -11,6 +11,7 @@
         'mgmtsystem_complaints',
         'website',
         'base',
+        'soy_cybersecurity_cybersecurity',
     ],
     'data': [
         'security/security_rules.xml',

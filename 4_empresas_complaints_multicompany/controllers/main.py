@@ -41,7 +41,7 @@ class ComplaintMultiCompany(http.Controller):
         ]
 
         # Recordset sudo y contexto multi-empresa
-        env_ctx = request.env['complaint.categ'].sudo(SUPERUSER_ID).with_context(
+        env_ctx = request.env['complaint.categ'].sudo().with_context(
             force_company       = company.id,
             allowed_company_ids = [company.id],
             active_test         = False,
@@ -128,6 +128,7 @@ class ComplaintMultiCompany(http.Controller):
             res_id = incidentModel.sudo().create(real_values)
             res_id.reason_ids = [(6, 0, reason_arr)]
             
+            self._send_email_notify(res_id.id, res_id._name, [res_id.company_id.id])
             values = {
                 'company': company,
                 'complaint': res_id,
@@ -149,6 +150,28 @@ class ComplaintMultiCompany(http.Controller):
             values.update(self._get_complaint_data(company))
             values.update(kw)  # Keep form data
             return request.render('4_empresas_complaints_multicompany.complaint_form', values)
+        
+    def _send_email_notify(self, record_id, model_name, company_ids):
+        _logger.info("init send email")
+        group = request.env.ref('soy_cybersecurity_cybersecurity.group_cybersecurity_write_printreport').sudo()
+        base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        record_url = f"{base_url}/web#id={record_id}&model={model_name}&view_type=form"
+
+        _logger.info("Init group ")
+        if group:
+            users = group.users.sudo().search([('company_ids', 'in', company_ids)])
+        else:
+            users = []
+            
+        _logger.info(f"users email: {users}")
+        for user in users:
+            mail_values = {
+                    "subject": f"Tiene un incidente por revisar",
+                    "body_html": f"<p>Hola {user.display_name},</p><p>Tiene un incidente por revisar</p> <p>Puedes verlo aquí: <a href={record_url}>Ver registro</a></p>",
+                    "email_to": user.email,
+                }
+            request.env["mail.mail"].sudo().create(mail_values).send()
+    
 
     def _process_complaint_data(self, form_data, company):
         """Process and validate form data"""
