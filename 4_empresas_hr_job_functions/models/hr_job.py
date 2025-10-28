@@ -29,7 +29,7 @@ class HrJob(models.Model):
         if total_empleados>0:
             sender = self.env.company.email
             date = datetime.now().strftime('%d/%m/%Y')
-            body = f'Usted ha realizado la acción de comunicar MOF del puesto {self.name}. Este MOF se comunico a {total_empleados} empleados. Se adjunta el MOF'
+            body = f'Usted ha realizado la acción de comunicar MOF del puesto {self.name}. Actualmente, este documento ha sido comunicado a {total_empleados} empleados. Se adjunta el MOF'
             fp = tempfile.NamedTemporaryFile(suffix='.pdf')
             data, data_format = self.env.ref('hr_job_functions.report_funinings').render([self.id])
             fp.write(data)
