@@ -158,8 +158,9 @@ class ComplaintMultiCompany(http.Controller):
         record_url = f"{base_url}/web#id={record_id}&model={model_name}&view_type=form"
 
         _logger.info("Init group ")
+        _logger.info(f"Company ids {company_ids}")
         if group:
-            users = group.users.sudo().search([('company_ids', 'in', company_ids)])
+            users = group.users.sudo().search([('company_id', 'in', company_ids)])
         else:
             users = []
             

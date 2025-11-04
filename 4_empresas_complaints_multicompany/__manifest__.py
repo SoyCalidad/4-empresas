@@ -12,6 +12,7 @@
         'website',
         'base',
         'soy_cybersecurity_cybersecurity',
+        'soy_cybersecurity_multi_company',
     ],
     'data': [
         'security/security_rules.xml',
