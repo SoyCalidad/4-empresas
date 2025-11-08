@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
 
             <field name="sel_groups_182_183_184_185" position="after">
-                <field name="report_incident" />
+                <field name="report_incident" groups="soy_cybersecurity_cybersecurity.group_cybersecurity_onlyread"/>
             </field>
         </field>
     </record>

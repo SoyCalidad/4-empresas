@@ -153,7 +153,7 @@ class ComplaintMultiCompany(http.Controller):
         
     def _send_email_notify(self, record_id, model_name, company_ids):
         _logger.info("init send email")
-        group = request.env.ref('soy_cybersecurity_cybersecurity.group_cybersecurity_write_printreport').sudo()
+        group = request.env.ref('soy_cybersecurity_cybersecurity.group_cybersecurity_write_printreport', raise_if_not_found=False).sudo()
         base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
         record_url = f"{base_url}/web#id={record_id}&model={model_name}&view_type=form"
 
