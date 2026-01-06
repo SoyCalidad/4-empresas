@@ -255,3 +255,117 @@ class ComplaintMultiCompany(http.Controller):
         }
         
         return request.render('4_empresas_complaints_multicompany.company_list', values)
+    
+    
+
+    @http.route('/reclamo/<string:company_slug>', type='http', auth='public', website=True, sitemap=False)
+    def web_course_inscription(self, company_slug, *args, **kw):
+        company = self._get_company_from_slug(company_slug)
+        if not company:
+            return request.render('website.404')
+        values = request.params.copy()
+        values['reason_ids'] = request.env['complaint.complaint.reason'].sudo().search([
+        ])
+        values['categ_id'] = request.env['complaint.categ'].sudo().search([])
+        values['company'] = company
+        response = request.render('4_empresas_complaints_multicompany.claim_form', values)
+        return response
+    
+    @http.route('/reclamo', type='http', auth='public', website=True, sitemap=False)
+    def reclamo_redirect(self, **kw):
+        company = request.env.company
+        if company and company.complaint_slug and company.complaint_form_active:
+            return werkzeug.utils.redirect(f'/reclamo/{company.complaint_slug}')
+        
+        # Find any active company with complaint form
+        active_company = request.env['res.company'].sudo().search([
+            ('complaint_form_active', '=', True),
+            ('complaint_slug', '!=', False)
+        ], limit=1)
+        
+        if active_company:
+            return werkzeug.utils.redirect(f'/reclamo/{active_company.complaint_slug}')
+        
+        # No active companies found
+        return request.render('website.404')
+
+    @http.route(['/reclamo_enviado/<string:company_slug>'], type='http', methods=['POST'], auth='public', website=True)
+    def my_controller_method(self, company_slug, **kw):
+        company = self._get_company_from_slug(company_slug)
+        if not company:
+            return request.render('website.404')
+        
+        op_admission_model = request.env['complaint.complaint']
+        print(kw)
+        file_encoded = b''
+        if kw.get('complaint_files'):
+            file = kw.get('complaint_files').read()
+            file_encoded = base64.b64encode(file)
+
+        real_values = {
+            'company_id': company.id
+        }
+        reason_arr = []
+
+        for val in kw.keys():
+            if kw[val]:
+                if val == 'complaint_files':
+                    real_values[val] = file_encoded
+                elif val == 'date_incident':
+                    real_values[val] = kw[val].replace('T', ' ')
+                elif val == 'reason_other':
+                    real_values[val] = kw[val]
+                elif 'reason_' in val:
+                    reason_arr.append(kw[val])
+                elif val == 'categ_id':
+                    print (kw[val])
+                    real_values['categ_id'] = int(kw['categ_id'])
+                elif val == 'type':
+                    if kw[val] == 'Interna':
+                        real_values[val] = 'customer'
+                    elif kw[val] == 'Externa':
+                        real_values[val] = 'supplier'
+                    if kw.get('type') and kw['type'] == 'Externa':
+                        partner_id = request.env['res.partner'].sudo().search(
+                            [('name', '=', kw[val])])
+                        if partner_id:
+                            real_values['partner_id'] = partner_id.id
+                    elif kw.get('type') and kw['type'] == 'Interna':
+                        employee_id = request.env['hr.employee'].sudo().search(
+                            [('name', '=', kw[val])])
+                        if employee_id:
+                            real_values['employee_notify_id'] = employee_id.id
+                elif val == 'complainer_delivery_type':
+                    delivery_type_vals = {
+                        'Seleccione como quiere recibir la respuesta a tu reclamo': None,
+                        'Quiero recibirla por correo electronico': 'email',
+                        'Quiero recibirla por celular': 'phone',
+                    }
+                    real_values[val] = delivery_type_vals[kw[val]]
+                else:
+                    real_values[val] = kw[val]
+                
+                complaint_name = kw['name'] + ' ' +  kw['date_incident'].replace('T', ' ')
+                real_values['name'] = complaint_name or '-'
+                real_values['complainer_name'] = kw['name']
+
+        res_id = op_admission_model.sudo().create(real_values)
+        res_id.reason_ids = [(6, 0, reason_arr)]
+        response = request.render('4_empresas_complaints_multicompany.claim_done', {})
+        return response
+
+
+    @http.route('/reclamos', type='http', auth='public', website=True, sitemap=True)
+    def company_complaint_list(self, **kw):
+        """List available complaint forms by company"""
+        companies = request.env['res.company'].sudo().search([
+            ('complaint_form_active', '=', True),
+            ('complaint_slug', '!=', False)
+        ])
+        
+        values = {
+            'companies': companies,
+        }
+        
+        return request.render('4_empresas_complaints_multicompany.company_list_claim', values)
+    
