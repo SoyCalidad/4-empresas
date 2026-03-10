@@ -351,11 +351,11 @@ class ComplaintMultiCompany(http.Controller):
 
         res_id = op_admission_model.sudo().create(real_values)
         res_id.reason_ids = [(6, 0, reason_arr)]
-        self._send_email_notify(res_id.id, res_id._name, [res_id.company_id.id])
+        self._send_email_notify_reclamo(res_id.id, res_id._name, [res_id.company_id.id])
         response = request.render('4_empresas_complaints_multicompany.claim_done', {})
         return response
 
-    def _send_email_notify(self, record_id, model_name, company_ids):
+    def _send_email_notify_reclamo(self, record_id, model_name, company_ids):
         _logger.info("init send email")
         group = request.env.ref('soy_cybersecurity_cybersecurity.group_cybersecurity_write_printreport', raise_if_not_found=False).sudo()
         base_url = request.env['ir.config_parameter'].sudo().get_param('web.base.url')
