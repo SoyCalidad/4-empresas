@@ -1,0 +1,86 @@
+<odoo>
+    <data>
+        <record id="management_review_form_view" model="ir.ui.view">
+            <field name="name">management.review.form.view</field>
+            <field name="model">management.review</field>
+            <field name="inherit_id" ref="mgmtsystem_management_review.management_review_form_view" />
+            <field name="arch" type="xml">
+                <group id="item_c_update" position="replace">
+                    <group id="item_c_update">
+                        <div class="plate">
+                            <p class="script">
+                                <h2>c. La información sobre el desempeño</h2>
+                            </p>
+                            <p class="script" style="margin-left:5em">
+                                <h3>c.1. la satisfacción del cliente y la retroalimentación de las partes interesadas pertinentes</h3>
+                            </p>
+                            <group>
+                                <field name="satisfaction_survey" attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}">
+                                </field>
+                                <field name="survey_description"/>
+                            </group>
+                            <p class="script" style="margin-left:5em">
+                                <h3>c.2. EL DESEMPEÑO DE LOS PROCESOS Y CONFORMIDAD DE LOS PRODUCTOS
+                                    Y SERVICIOS</h3>
+                            </p>
+                            <group colspan="3">
+                                <field name="process"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                                <field name="process_description"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                            </group>
+                            <p class="script" style="margin-left:5em">
+                                <h3>c.3. CUMPLIMIENTO DE REQUISITOS LEGALES Y OTROS REQUISITOS</h3>
+                            </p>
+                            <group colspan="3">
+                                <field name="it_legal_requirements"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                                <field name="it_legal_requirements_description"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                            </group>
+                            <p class="script" style="margin-left:5em">
+                                <h3>c.4. LAS NO CONFORMIDADES Y ACCIONES CORRECTIVAS</h3>
+                            </p>
+                            <group>
+                                <field name="nonconformity_action"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                                <field name="nonconformity_action_description"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                            </group>
+                            <p class="script" style="margin-left:5em">
+                                <h3>c.5. LOS RESULTADOS DE SEGUIMIENTO Y MEDICIÓN</h3>
+                            </p>
+                            <group>
+                                <field name="indicator"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                                <field name="indicator_description"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                            </group>
+                            <p class="script" style="margin-left:5em">
+                                <h3>c.6. LOS RESULTADOS DE LAS AUDITORÍAS</h3>
+                            </p>
+                            <group>
+                                <field name="audit"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                                <field name="audit_description"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                            </group>
+                            <p class="script" style="margin-left:5em">
+                                <h3>c.7. Cumplimiento de los objetivos</h3>
+                            </p>
+                            <group colspan="3">
+                                <field name="it_security_target"
+                                string="Objetivos"
+                                colspan="3"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                                <field name="it_security_target_description" colspan="3"
+                                    attrs="{'readonly': [('state','in',('validate_ok','closed','cancel'))]}" />
+                            </group>
+                        </div>
+                    </group>
+                </group>
+
+            </field>
+        </record>
+    </data>
+</odoo>                    
