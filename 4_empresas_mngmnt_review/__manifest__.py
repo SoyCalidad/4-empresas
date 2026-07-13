@@ -17,5 +17,7 @@
 
     'data': [
         'views/management_review_views.xml',
+
+        'reports/management_review_templates.xml',
     ],
 }

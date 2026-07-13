@@ -1,0 +1,12 @@
+<odoo>
+   <record id="view_mgmtsystem_plan_training_form" model="ir.ui.view">
+        <field name="name">mgmtsystem.plan.training.form</field>
+        <field name="model">mgmtsystem.plan.training</field>
+        <field name="inherit_id" ref="mgmtsystem_employees.view_mgmtsystem_plan_training_form"/>
+        <field name="arch" type="xml">
+            <field name="responsible_in_id" position="after">
+                <field name="general_manager_id" ></field>
+            </field>
+        </field>
+    </record>
+</odoo>
